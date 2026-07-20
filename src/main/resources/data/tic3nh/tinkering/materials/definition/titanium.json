@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "type": "mantle:tag_filled",
+    "tag": "forge:ingots/titanium"
+  },
+  "craftable": false,
+  "hidden": false,
+  "sortOrder": 105,
+  "tier": 3
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:stainless_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_stainless_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_stainless_steel",
+      "required": false
+    }
+  ]
+}

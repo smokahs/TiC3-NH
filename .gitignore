@@ -1,0 +1,21 @@
+# Gradle / build
+.gradle/
+build/
+run/
+run-data/
+src/generated/resources/.cache/
+
+# Eclipse / IDEA / VSCode
+.settings/
+.classpath
+.project
+.idea/
+*.iml
+.vscode/
+bin/
+
+# Forge
+*.launch
+
+# smokahs
+backup

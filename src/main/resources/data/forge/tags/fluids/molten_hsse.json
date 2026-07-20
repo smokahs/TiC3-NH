@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:hsse",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_hsse",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_hsse",
+      "required": false
+    }
+  ]
+}

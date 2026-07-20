@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:damascus_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_damascus_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_damascus_steel",
+      "required": false
+    }
+  ]
+}

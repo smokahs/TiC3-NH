@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:red_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_red_steel",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_red_steel",
+      "required": false
+    }
+  ]
+}

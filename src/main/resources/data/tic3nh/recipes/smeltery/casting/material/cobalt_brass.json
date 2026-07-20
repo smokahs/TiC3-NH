@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/cobalt_brass"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_cobalt_brass"
+  },
+  "output": "tic3nh:cobalt_brass",
+  "temperature": 1100
+}

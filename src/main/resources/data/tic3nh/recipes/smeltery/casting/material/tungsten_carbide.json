@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/tungsten_carbide"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_tungsten_carbide"
+  },
+  "output": "tic3nh:tungsten_carbide",
+  "temperature": 1400
+}

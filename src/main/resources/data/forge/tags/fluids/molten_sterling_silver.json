@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:sterling_silver",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_sterling_silver",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_sterling_silver",
+      "required": false
+    }
+  ]
+}

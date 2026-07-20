@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:duranium",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_duranium",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_duranium",
+      "required": false
+    }
+  ]
+}

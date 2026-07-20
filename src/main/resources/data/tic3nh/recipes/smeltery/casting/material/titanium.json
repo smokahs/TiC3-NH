@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/titanium"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_titanium"
+  },
+  "output": "tic3nh:titanium",
+  "temperature": 1250
+}

@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/damascus_steel"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/damascus_steel"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_damascus_steel"
+  },
+  "temperature": 1250,
+  "time": 100
+}

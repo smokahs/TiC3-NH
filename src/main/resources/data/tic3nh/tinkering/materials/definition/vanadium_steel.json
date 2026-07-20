@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "type": "mantle:tag_filled",
+    "tag": "forge:ingots/vanadium_steel"
+  },
+  "craftable": false,
+  "hidden": false,
+  "sortOrder": 107,
+  "tier": 3
+}

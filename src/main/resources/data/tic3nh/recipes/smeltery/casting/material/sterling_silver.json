@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/sterling_silver"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_sterling_silver"
+  },
+  "output": "tic3nh:sterling_silver",
+  "temperature": 1100
+}

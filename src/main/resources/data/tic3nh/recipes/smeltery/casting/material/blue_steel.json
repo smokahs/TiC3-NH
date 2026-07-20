@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/blue_steel"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_blue_steel"
+  },
+  "output": "tic3nh:blue_steel",
+  "temperature": 1250
+}

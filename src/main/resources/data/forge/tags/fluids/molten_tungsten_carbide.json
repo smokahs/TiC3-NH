@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:tungsten_carbide",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_tungsten_carbide",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_tungsten_carbide",
+      "required": false
+    }
+  ]
+}

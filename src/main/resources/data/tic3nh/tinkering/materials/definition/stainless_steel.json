@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "type": "mantle:tag_filled",
+    "tag": "forge:ingots/stainless_steel"
+  },
+  "craftable": false,
+  "hidden": false,
+  "sortOrder": 104,
+  "tier": 3
+}

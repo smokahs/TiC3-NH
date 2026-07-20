@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:titanium",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_titanium",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_titanium",
+      "required": false
+    }
+  ]
+}

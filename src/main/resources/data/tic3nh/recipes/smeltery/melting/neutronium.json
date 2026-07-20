@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/neutronium"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/neutronium"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_neutronium"
+  },
+  "temperature": 1700,
+  "time": 130
+}

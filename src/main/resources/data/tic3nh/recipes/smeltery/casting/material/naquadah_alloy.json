@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material_fluid",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/naquadah_alloy"
+    }
+  ],
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_naquadah_alloy"
+  },
+  "output": "tic3nh:naquadah_alloy",
+  "temperature": 1550
+}

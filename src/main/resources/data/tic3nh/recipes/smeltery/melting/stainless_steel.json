@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/stainless_steel"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/stainless_steel"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_stainless_steel"
+  },
+  "temperature": 1250,
+  "time": 100
+}

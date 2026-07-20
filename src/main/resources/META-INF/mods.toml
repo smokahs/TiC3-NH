@@ -1,0 +1,58 @@
+modLoader="javafml"
+loaderVersion="${forge_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/smokahs/TiC3-NH/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="smokahs"
+description='''
+GregTech New Horizons-style Tinkers' Construct addon: numbered mining levels, per-tool XP leveling,
+GTNH modifier set, and a GTCEu Modern + Monifactory material bridge.
+'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="mantle"
+    mandatory=true
+    versionRange="[${mantle_version},)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[${tinkers_version},)"
+    ordering="AFTER"
+    side="BOTH"
+
+# GTCEu Modern is the material-bridge source but optional: the addon loads without it (static fallback set).
+[[dependencies.${mod_id}]]
+    modId="gtceu"
+    mandatory=false
+    versionRange="*"
+    ordering="AFTER"
+    side="BOTH"
+
+# Jade (WAILA) is optional: enables the in-world mining-level tooltip when present.
+[[dependencies.${mod_id}]]
+    modId="jade"
+    mandatory=false
+    versionRange="*"
+    ordering="AFTER"
+    side="CLIENT"

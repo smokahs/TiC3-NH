@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/hsse"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/hsse"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_hsse"
+  },
+  "temperature": 1400,
+  "time": 110
+}

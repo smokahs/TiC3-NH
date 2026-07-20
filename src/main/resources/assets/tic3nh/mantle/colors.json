@@ -1,0 +1,17 @@
+{
+  "harvest_tier": {
+    "tic3nh": {
+      "stone": "#AAAAAA",
+      "copper": "#FFAA00",
+      "iron": "#555555",
+      "tin": "#FFFFFF",
+      "redstone": "#FF5555",
+      "obsidian": "#FF55FF",
+      "ardite": "#AA0000",
+      "cobalt": "#00AAAA",
+      "manyullyn": "#AA00AA",
+      "darconite": "#C850C0",
+      "monium": "#35E0D0"
+    }
+  }
+}

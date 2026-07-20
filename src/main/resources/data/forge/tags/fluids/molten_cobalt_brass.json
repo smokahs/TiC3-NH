@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:cobalt_brass",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_cobalt_brass",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_cobalt_brass",
+      "required": false
+    }
+  ]
+}

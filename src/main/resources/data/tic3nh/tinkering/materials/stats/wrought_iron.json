@@ -1,0 +1,17 @@
+{
+  "stats": {
+    "tconstruct:head": {
+      "durability": 680,
+      "melee_attack": 2.66,
+      "mining_speed": 6.5,
+      "mining_tier": "tic3nh:tin"
+    },
+    "tconstruct:handle": {
+      "durability": 0.1,
+      "melee_damage": 0.05,
+      "melee_speed": 0.0,
+      "mining_speed": 0.0
+    },
+    "tconstruct:binding": {}
+  }
+}

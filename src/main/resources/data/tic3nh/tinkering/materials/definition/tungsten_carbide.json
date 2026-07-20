@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "type": "mantle:tag_filled",
+    "tag": "forge:ingots/tungsten_carbide"
+  },
+  "craftable": false,
+  "hidden": false,
+  "sortOrder": 110,
+  "tier": 4
+}

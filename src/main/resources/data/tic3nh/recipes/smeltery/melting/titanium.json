@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/titanium"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/titanium"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_titanium"
+  },
+  "temperature": 1250,
+  "time": 100
+}

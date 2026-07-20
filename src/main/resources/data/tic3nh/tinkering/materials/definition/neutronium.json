@@ -1,0 +1,10 @@
+{
+  "condition": {
+    "type": "mantle:tag_filled",
+    "tag": "forge:ingots/neutronium"
+  },
+  "craftable": false,
+  "hidden": false,
+  "sortOrder": 116,
+  "tier": 5
+}

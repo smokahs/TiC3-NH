@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:wrought_iron",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_wrought_iron",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_wrought_iron",
+      "required": false
+    }
+  ]
+}

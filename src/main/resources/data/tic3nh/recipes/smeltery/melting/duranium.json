@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/duranium"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/duranium"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_duranium"
+  },
+  "temperature": 1550,
+  "time": 120
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gtceu:ultimet",
+      "required": false
+    },
+    {
+      "id": "gtceu:liquid_ultimet",
+      "required": false
+    },
+    {
+      "id": "gtceu:molten_ultimet",
+      "required": false
+    }
+  ]
+}
