@@ -1,5 +1,4 @@
 {
-  "__comment": "GTNH Ball of Moss — costlier than 1 moss block (GTNH's was a rare mining drop): 4 moss blocks bound with slime.",
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     { "item": "minecraft:moss_block" },

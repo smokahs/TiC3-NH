@@ -1,5 +1,4 @@
 {
-  "__comment": "GTNH Auto-Repair (Mending Moss): 1 Ball of Moss per level, up to 5.",
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "inputs": [ { "item": "tic3nh:ball_of_moss" } ],

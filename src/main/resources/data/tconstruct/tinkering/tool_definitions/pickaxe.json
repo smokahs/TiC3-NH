@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH override of tconstruct:pickaxe — verbatim TiC modules + appended tic3nh mining-boost (unboosted_tier_penalty + mining_boost trait). Re-sync if TConstruct changes its pickaxe definition (DESIGN §3.2, §8 risk#4).",
   "modules": [
     {
       "type": "tconstruct:part_stats",

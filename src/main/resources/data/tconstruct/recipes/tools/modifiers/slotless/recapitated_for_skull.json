@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH removes TiC's `recapitated_for_skull` (see recapitated.json). forge:false override.",
   "type": "tconstruct:modifier",
   "conditions": [ { "type": "forge:false" } ],
   "inputs": [ { "item": "minecraft:zombie_head" } ],

@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH: removed TiC's emerald_reinforcement recipe — re-recipe'd to obsidian (old-TiC style) in data/tic3nh. forge:false override.",
   "type": "tconstruct:incremental_modifier",
   "conditions": [ { "type": "forge:false" } ],
   "amount_per_item": 1,

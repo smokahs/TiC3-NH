@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH override of tconstruct:sledge_hammer — verbatim TiC modules + appended tic3nh mining-boost. Re-sync if TConstruct changes its sledge_hammer definition (DESIGN §3.2, §8 risk#4).",
   "modules": [
     {
       "type": "tconstruct:part_stats",

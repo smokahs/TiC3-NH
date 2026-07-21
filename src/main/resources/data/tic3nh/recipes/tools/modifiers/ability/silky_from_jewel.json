@@ -1,5 +1,4 @@
 {
-  "__comment": "GTNH: Silk Touch from 1 Silky Jewel (our item).",
   "type": "tconstruct:modifier",
   "allow_crystal": true,
   "check_trait_level": true,

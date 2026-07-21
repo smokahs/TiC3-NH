@@ -1,5 +1,4 @@
 {
-  "__comment": "GTNH Luck from loose lapis lazuli. Incremental (a full level of gems won't fit the modifier slots): 18 gems/level = 2 blocks, matching luck_from_lapis_1's level-1 cost. Costs 1 ability slot total, up to level 3. Blocks stay the cheaper compressed path (luck_from_lapis_1/2/3).",
   "type": "tconstruct:incremental_modifier",
   "allow_crystal": true,
   "amount_per_item": 1,

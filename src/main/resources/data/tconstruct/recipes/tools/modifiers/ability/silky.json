@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH: removed TiC's silky-cloth recipe — re-recipe'd to our Silky Jewel (data/tic3nh). forge:false override.",
   "type": "tconstruct:modifier",
   "conditions": [ { "type": "forge:false" } ],
   "inputs": [ { "item": "minecraft:barrier" } ],

@@ -1,5 +1,4 @@
 {
-  "__comment": "TiC3-NH: removed TiC's Killager-from-lapis-block recipe — it ate forge:storage_blocks/lapis, colliding with our GTNH Luck-from-lapis (data/tic3nh) so Killager won. Lapis is GTNH Luck; Killager isn't a GTNH modifier. forge:false override (our data loads after tconstruct, so this wins).",
   "type": "tconstruct:incremental_modifier",
   "conditions": [ { "type": "forge:false" } ],
   "amount_per_item": 9,
