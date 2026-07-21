@@ -1,0 +1,12 @@
+{
+  "__comment": "TiC3-NH: removed TiC's Killager-from-lapis-gem recipe (forge:gems/lapis). Same reason as killager_from_block: lapis is GTNH Luck, Killager isn't a GTNH modifier. forge:false override.",
+  "type": "tconstruct:incremental_modifier",
+  "conditions": [ { "type": "forge:false" } ],
+  "amount_per_item": 1,
+  "input": { "tag": "forge:gems/lapis" },
+  "level": { "max": 5 },
+  "needed_per_level": 45,
+  "result": "tconstruct:killager",
+  "slots": { "upgrades": 1 },
+  "tools": { "tag": "tconstruct:modifiable/melee" }
+}

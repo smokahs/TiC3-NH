@@ -1,39 +1,59 @@
 package com.tic3nh.setup;
 
 import net.minecraft.world.item.Item;
+
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import com.tic3nh.TiC3NH;
-import com.tic3nh.mininglevel.MiningBoostModifier;
+import com.tic3nh.leveling.LvlMod;
+import com.tic3nh.mininglevel.BoostMod;
+import com.tic3nh.mininglevel.SkullMod;
+import com.tic3nh.modifiers.CritMod;
+import com.tic3nh.modifiers.MossMod;
+import com.tic3nh.modifiers.RepairMod;
 
-/**
- * Central registry wiring.
- * <ul>
- *   <li>Phase 2 — GTNH harvest tiers (in common setup via TierSortingRegistry, not a register here).</li>
- *   <li>Phase 3 — mining-boost modifier (below). Tool-definition modules register in common setup.</li>
- *   <li>Phase 3-5 — boost items (skulls) into {@link #ITEMS}.</li>
- * </ul>
- */
 public final class reg {
 
     private reg() {}
 
-    /** Placeholder item register for future GTNH boost items (mob skulls, etc.). */
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, TiC3NH.MOD_ID);
 
-    /** TiC modifier register. */
+    public static final RegistryObject<Item> SILKY_JEWEL =
+            ITEMS.register("silky_jewel", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> BALL_OF_MOSS =
+            ITEMS.register("ball_of_moss", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> REINFORCEMENT =
+            ITEMS.register("reinforcement", () -> new Item(new Item.Properties()));
+
     public static final ModifierDeferredRegister MODIFIERS =
             ModifierDeferredRegister.create(TiC3NH.MOD_ID);
 
-    /** Innate mining-boost trait: mine enough to fire the one-time tier boost (DESIGN §3.2). */
-    public static final StaticModifier<MiningBoostModifier> MINING_BOOST =
-            MODIFIERS.register("mining_boost", MiningBoostModifier::new);
+    public static final StaticModifier<BoostMod> MINING_BOOST =
+            MODIFIERS.register("mining_boost", BoostMod::new);
+
+    public static final StaticModifier<LvlMod> LEVELING =
+            MODIFIERS.register("leveling", LvlMod::new);
+
+    public static final StaticModifier<SkullMod> MINING_LEVEL_BOOST =
+            MODIFIERS.register("mining_level_boost", SkullMod::new);
+
+    public static final StaticModifier<MossMod> MOSS =
+            MODIFIERS.register("moss", MossMod::new);
+
+    public static final StaticModifier<CritMod> CRITICAL =
+            MODIFIERS.register("critical", CritMod::new);
+
+    public static final StaticModifier<RepairMod> REPAIR_TWEAKS =
+            MODIFIERS.register("repair_tweaks", RepairMod::new);
 
     public static void init(IEventBus modBus) {
         ITEMS.register(modBus);

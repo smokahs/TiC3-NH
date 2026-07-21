@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tconstruct:severing",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged/launcher"
+    }
+  ],
+  "slots": {
+    "upgrades": 1
+  }
+}

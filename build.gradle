@@ -1,8 +1,19 @@
+buildscript {
+    repositories {
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7.38'
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.0.37]'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 version = "${minecraft_version}-${mod_version}"
@@ -46,6 +57,12 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+apply plugin: 'org.spongepowered.mixin'
+mixin {
+    add sourceSets.main, 'tic3nh.refmap.json'
+    config 'tic3nh.mixins.json'
+}
+
 repositories {
     mavenCentral()
     maven { name 'DVS1 Maven FS'; url 'https://dvs1.progwml6.com/files/maven' } // Mantle + TConstruct
@@ -54,6 +71,7 @@ repositories {
     maven { name 'Dogforce Games'; url 'https://www.dogforce-games.com/maven/' } // JSON Things (TConstruct runtime)
     maven { url 'https://www.cursemaven.com'; content { includeGroup 'curse.maven' } }
     maven { url 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } } // Jade
+    maven { url 'https://maven.terraformersmc.com/releases'; content { includeGroup 'dev.emi' } } // EMI
 }
 
 dependencies {
@@ -62,9 +80,8 @@ dependencies {
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tinkers_version}")
 
-    // Jade (WAILA) — compile-only, no deobf: we only call Jade's own API (MC refs resolve from the
-    // deobf'd Forge/TConstruct jars). The plugin activates only when Jade is installed at runtime.
     compileOnly "maven.modrinth:jade:${jade_version}"
+    compileOnly "dev.emi:emi-forge:${emi_version}"
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -90,5 +107,15 @@ tasks.named('jar', Jar).configure {
             'Implementation-Version'  : project.jar.archiveVersion,
             'Implementation-Vendor'   : mod_name
         ])
+    }
+}
+spotless {
+    java {
+        target 'src/main/java/**/*.java'
+        importOrder('java', 'javax', 'net.minecraft', 'net.minecraftforge', 'slimeknights', 'com.tic3nh')
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        endWithNewline()
     }
 }

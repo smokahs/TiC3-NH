@@ -11,7 +11,7 @@
       "durability": 500,
       "melee_attack": 2.0,
       "mining_speed": 4.5,
-      "mining_tier": "tic3nh:tin"
+      "mining_tier": "tic3nh:iron"
     },
     "tconstruct:maille": {},
     "tconstruct:plating_boots": {

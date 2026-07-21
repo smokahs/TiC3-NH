@@ -1,0 +1,7 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [{ "item": "minecraft:skeleton_skull" }],
+  "level": 2,
+  "result": "tic3nh:mining_level_boost",
+  "tools": { "tag": "tconstruct:modifiable" }
+}

@@ -13,5 +13,12 @@
       "darconite": "#C850C0",
       "monium": "#35E0D0"
     }
+  },
+  "modifier": {
+    "tic3nh": {
+      "mining_level_boost": "#9B59D0",
+      "mining_boost": "#E8A33D",
+      "leveling": "#2ECC71"
+    }
   }
 }

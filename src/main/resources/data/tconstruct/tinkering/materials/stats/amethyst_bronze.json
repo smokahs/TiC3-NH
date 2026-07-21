@@ -16,7 +16,7 @@
       "durability": 720,
       "melee_attack": 1.5,
       "mining_speed": 7.0,
-      "mining_tier": "tic3nh:redstone"
+      "mining_tier": "tic3nh:tin"
     },
     "tconstruct:limb": {
       "accuracy": -0.1,

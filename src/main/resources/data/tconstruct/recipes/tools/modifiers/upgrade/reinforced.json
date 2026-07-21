@@ -1,0 +1,12 @@
+{
+  "__comment": "TiC3-NH: removed TiC's emerald_reinforcement recipe — re-recipe'd to obsidian (old-TiC style) in data/tic3nh. forge:false override.",
+  "type": "tconstruct:incremental_modifier",
+  "conditions": [ { "type": "forge:false" } ],
+  "amount_per_item": 1,
+  "input": { "item": "tconstruct:emerald_reinforcement" },
+  "level": { "max": 5 },
+  "needed_per_level": 4,
+  "result": "tconstruct:reinforced",
+  "slots": { "upgrades": 1 },
+  "tools": { "tag": "tconstruct:modifiable/durability" }
+}

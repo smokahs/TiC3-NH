@@ -1,0 +1,19 @@
+{
+  "__comment": "TiC3-NH: removed TiC's recipe \u2014 re-recipe'd to the GTNH consumable in data/tic3nh.",
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "type": "forge:false"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "minecraft:barrier"
+    }
+  ],
+  "level": 1,
+  "result": "tconstruct:necrotic",
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

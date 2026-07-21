@@ -16,7 +16,7 @@
       "durability": 800,
       "melee_attack": 2.25,
       "mining_speed": 6.5,
-      "mining_tier": "tic3nh:manyullyn"
+      "mining_tier": "tic3nh:cobalt"
     },
     "tconstruct:limb": {
       "accuracy": 0.05,

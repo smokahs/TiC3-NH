@@ -1,0 +1,9 @@
+{
+  "__comment": "GTNH Reinforcement: cast 288 mB Molten Steel onto an obsidian plate (obsidian_reinforcement), consuming it. Casting shows in JEI (TiC is JEI-only for casting; EMI relies on JEI-compat).",
+  "type": "tconstruct:casting_table",
+  "cast": { "item": "tconstruct:obsidian_reinforcement" },
+  "cast_consumed": true,
+  "cooling_time": 80,
+  "fluid": { "amount": 288, "tag": "tconstruct:molten_steel" },
+  "result": "tic3nh:reinforcement"
+}

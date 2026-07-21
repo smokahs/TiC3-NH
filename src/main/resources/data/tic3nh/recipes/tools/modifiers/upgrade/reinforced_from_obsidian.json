@@ -1,0 +1,12 @@
+{
+  "__comment": "GTNH Reinforced: 1 Reinforcement (molten steel cast onto an obsidian plate) per level, up to 5.",
+  "type": "tconstruct:incremental_modifier",
+  "allow_crystal": true,
+  "amount_per_item": 1,
+  "input": { "item": "tic3nh:reinforcement" },
+  "level": { "max": 5 },
+  "needed_per_level": 4,
+  "result": "tconstruct:reinforced",
+  "slots": { "upgrades": 1 },
+  "tools": { "tag": "tconstruct:modifiable/durability" }
+}

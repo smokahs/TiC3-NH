@@ -13,6 +13,10 @@ GregTech New Horizons-style Tinkers' Construct addon: numbered mining levels, pe
 GTNH modifier set, and a GTCEu Modern + Monifactory material bridge.
 '''
 
+# Universal innate leveling trait — injected into ToolStack.rebuildStats (see mixin/ToolStackMixin).
+[[mixins]]
+config="tic3nh.mixins.json"
+
 [[dependencies.${mod_id}]]
     modId="forge"
     mandatory=true
@@ -52,6 +56,14 @@ GTNH modifier set, and a GTCEu Modern + Monifactory material bridge.
 # Jade (WAILA) is optional: enables the in-world mining-level tooltip when present.
 [[dependencies.${mod_id}]]
     modId="jade"
+    mandatory=false
+    versionRange="*"
+    ordering="AFTER"
+    side="CLIENT"
+
+# EMI is optional: our plugin keeps EMI's item grid off TiC's table-GUI side panels when present.
+[[dependencies.${mod_id}]]
+    modId="emi"
     mandatory=false
     versionRange="*"
     ordering="AFTER"

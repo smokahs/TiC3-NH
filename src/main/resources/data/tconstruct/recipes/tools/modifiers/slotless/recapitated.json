@@ -1,0 +1,9 @@
+{
+  "__comment": "TiC3-NH removes TiC's `recapitated` (mob-head → +1 slot) — GTNH has no such modifier, and it collides with our skull mining-level boost. forge:false override (our data loads after tconstruct, so this wins).",
+  "type": "tconstruct:modifier",
+  "conditions": [ { "type": "forge:false" } ],
+  "inputs": [ { "item": "minecraft:zombie_head" } ],
+  "level": 1,
+  "result": "tconstruct:recapitated",
+  "tools": { "tag": "tconstruct:modifiable" }
+}

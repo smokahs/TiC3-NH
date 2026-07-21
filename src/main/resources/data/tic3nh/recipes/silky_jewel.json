@@ -1,0 +1,9 @@
+{
+  "__comment": "GTNH Silky Jewel = emerald + Silky Cloth (TiC's silk reagent, cast from cobweb + molten rose gold).",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:emerald" },
+    { "item": "tconstruct:silky_cloth" }
+  ],
+  "result": { "item": "tic3nh:silky_jewel" }
+}

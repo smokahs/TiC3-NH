@@ -1,0 +1,11 @@
+{
+  "__comment": "GTNH: Silk Touch from 1 Silky Jewel (our item).",
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [ { "item": "tic3nh:silky_jewel" } ],
+  "level": 1,
+  "result": "tconstruct:silky",
+  "slots": { "abilities": 1 },
+  "tools": { "tag": "tconstruct:modifiable/harvest" }
+}

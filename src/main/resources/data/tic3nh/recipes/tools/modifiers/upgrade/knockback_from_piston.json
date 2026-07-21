@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "minecraft:piston"
+    }
+  ],
+  "level": {
+    "max": 3
+  },
+  "result": "tconstruct:knockback",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/chestplate"
+    }
+  ],
+  "slots": {
+    "upgrades": 1
+  }
+}
