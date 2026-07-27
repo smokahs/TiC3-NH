@@ -2,7 +2,7 @@
   "type": "tconstruct:casting_table",
   "cast": { "item": "tconstruct:obsidian_reinforcement" },
   "cast_consumed": true,
-  "cooling_time": 80,
-  "fluid": { "amount": 288, "tag": "tconstruct:molten_steel" },
+  "cooling_time": 91,
+  "fluid": { "amount": 180, "tag": "forge:molten_steel" },
   "result": "tic3nh:reinforcement"
 }
