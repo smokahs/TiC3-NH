@@ -1,6 +1,7 @@
 package com.tic3nh.setup;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.material.Fluids;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -11,6 +12,8 @@ import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import com.tic3nh.TiC3NH;
+import com.tic3nh.buckets.ClayBucket;
+import com.tic3nh.buckets.MilkBucket;
 import com.tic3nh.leveling.LvlMod;
 import com.tic3nh.mininglevel.BoostMod;
 import com.tic3nh.mininglevel.SkullMod;
@@ -33,6 +36,21 @@ public final class reg {
 
     public static final RegistryObject<Item> REINFORCEMENT =
             ITEMS.register("reinforcement", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET =
+            ITEMS.register("unfired_clay_bucket", () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> CLAY_BUCKET = ITEMS
+            .register("clay_bucket", () -> new ClayBucket(Fluids.EMPTY, false, new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> WATER_CLAY_BUCKET = ITEMS
+            .register("water_clay_bucket", () -> new ClayBucket(Fluids.WATER, false, new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> LAVA_CLAY_BUCKET = ITEMS
+            .register("lava_clay_bucket", () -> new ClayBucket(Fluids.LAVA, true, new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> MILK_CLAY_BUCKET =
+            ITEMS.register("milk_clay_bucket", () -> new MilkBucket(new Item.Properties().stacksTo(1)));
 
     public static final ModifierDeferredRegister MODIFIERS =
             ModifierDeferredRegister.create(TiC3NH.MOD_ID);

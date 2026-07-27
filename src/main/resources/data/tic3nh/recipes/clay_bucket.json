@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": { "item": "tic3nh:unfired_clay_bucket" },
+  "result": "tic3nh:clay_bucket",
+  "experience": 0.0,
+  "cookingtime": 200
+}
