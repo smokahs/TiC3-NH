@@ -24,6 +24,11 @@ public final class TierTags extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
 
+        // every tier gets a file even when empty, packs and gt ores append to them
+        for (GtTiers.GtnhTier tier : GtTiers.TIERS) {
+            tag(tier.blockTag());
+        }
+
         tag(GtTiers.COPPER.blockTag()).add(
                 Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE,
                 Blocks.COPPER_ORE, Blocks.DEEPSLATE_COPPER_ORE,
@@ -37,7 +42,14 @@ public final class TierTags extends BlockTagsProvider {
                 Blocks.NETHER_QUARTZ_ORE);
 
         tag(GtTiers.OBSIDIAN.blockTag()).add(
-                Blocks.OBSIDIAN, Blocks.CRYING_OBSIDIAN, Blocks.ANCIENT_DEBRIS);
+                Blocks.OBSIDIAN, Blocks.CRYING_OBSIDIAN, Blocks.ANCIENT_DEBRIS,
+                Blocks.RESPAWN_ANCHOR);
+
+        tag(GtTiers.COBALT.blockTag()).add(
+                Blocks.NETHERITE_BLOCK);
+
+        tag(GtTiers.MANYULLYN.blockTag()).add(
+                Blocks.REINFORCED_DEEPSLATE);
 
     }
 }

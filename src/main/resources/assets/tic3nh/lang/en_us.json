@@ -34,7 +34,7 @@
   "modifier.tic3nh.moss.flavor": "Mending Moss",
   "modifier.tic3nh.moss.description": "Passively restores durability over time, faster in sunlight",
   "modifier.tic3nh.mining_level_boost.flavor": "It lives again!",
-  "modifier.tic3nh.mining_level_boost.description": "Boosts the tool's mining level by 1",
+  "modifier.tic3nh.mining_level_boost.description": "Each level skips the mining boost training for one more tier",
   "modifier.tic3nh.mining_boost.flavor": "On-the-job training",
   "modifier.tic3nh.mining_boost.description": "Mine blocks to reach the material's true mining level, once",
   "modifier.tic3nh.leveling.flavor": "Practice makes perfect",

@@ -3,12 +3,16 @@ package com.tic3nh.restriction;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.Tiers;
 
+import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,7 +39,7 @@ public final class Nerf {
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
-        if (shouldNerf(event.getItemStack())) {
+        if (shouldNerf(event.getItemStack()) || shouldNerfSword(event.getItemStack())) {
             event.getToolTip().add(Component.translatable("tic3nh.tooltip.tool_nerfed")
                     .withStyle(ChatFormatting.RED));
         }
@@ -52,15 +56,19 @@ public final class Nerf {
         }
     }
 
+    // stripping attack damage leaves the player's base 1.0, matching a bare hand
+    @SubscribeEvent
+    public static void onAttributes(ItemAttributeModifierEvent event) {
+        if (event.getSlotType() == EquipmentSlot.MAINHAND && shouldNerfSword(event.getItemStack())) {
+            event.removeAttribute(Attributes.ATTACK_DAMAGE);
+        }
+    }
+
     private static boolean shouldNerf(ItemStack stack) {
-        if (stack.isEmpty() || !(stack.getItem() instanceof DiggerItem)) {
+        if (!(stack.getItem() instanceof DiggerItem) || !nerfable(stack)) {
             return false;
         }
-        if (stack.is(TinkerTags.Items.MODIFIABLE) || isExcluded(stack)) {
-            return false;
-        }
-        boolean stoneTier = stack.getItem() instanceof TieredItem tiered && tiered.getTier() == Tiers.STONE;
-        if (stoneTier && Cfg.DISABLE_STONE_TOOLS.get()) {
+        if (stoneTier(stack) && Cfg.DISABLE_STONE_TOOLS.get()) {
             return true;
         }
         if (!Cfg.NERF_VANILLA_TOOLS.get()) {
@@ -70,6 +78,26 @@ public final class Nerf {
             return false;
         }
         return true;
+    }
+
+    private static boolean shouldNerfSword(ItemStack stack) {
+        if (!(stack.getItem() instanceof SwordItem) || !nerfable(stack)) {
+            return false;
+        }
+        if (stoneTier(stack) && Cfg.DISABLE_STONE_TOOLS.get()) {
+            return true;
+        }
+        return Cfg.NERF_VANILLA_SWORDS.get();
+    }
+
+    private static boolean nerfable(ItemStack stack) {
+        return Cfg.loaded() && !stack.isEmpty()
+                && !stack.is(TinkerTags.Items.MODIFIABLE)
+                && !isExcluded(stack);
+    }
+
+    private static boolean stoneTier(ItemStack stack) {
+        return stack.getItem() instanceof TieredItem tiered && tiered.getTier() == Tiers.STONE;
     }
 
     private static boolean isExcluded(ItemStack stack) {

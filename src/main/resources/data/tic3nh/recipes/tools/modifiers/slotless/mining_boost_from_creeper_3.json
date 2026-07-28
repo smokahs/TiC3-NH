@@ -1,0 +1,7 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [{ "item": "minecraft:creeper_head" }],
+  "level": 3,
+  "result": "tic3nh:mining_level_boost",
+  "tools": { "tag": "tconstruct:modifiable" }
+}

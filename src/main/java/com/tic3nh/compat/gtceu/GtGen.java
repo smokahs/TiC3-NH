@@ -124,7 +124,7 @@ public final class GtGen {
 
     private static String miningTier(String name, GtMat m) {
         MatTable.Entry e = MatTable.get(name);
-        return e != null ? "tic3nh:" + e.tier() : TierMap.tierId(name, m.harvestLevel());
+        return e != null ? "tic3nh:" + e.tier() : TierMap.tierId(name, m.harvestLevel(), m.durability());
     }
 
     private static JsonObject traits(String name, GtMat m) {

@@ -1,8 +1,13 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    { "item": "minecraft:emerald" },
-    { "item": "tconstruct:silky_cloth" }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CEC",
+    "CCC"
   ],
+  "key": {
+    "C": { "item": "tconstruct:silky_cloth" },
+    "E": { "item": "minecraft:emerald" }
+  },
   "result": { "item": "tic3nh:silky_jewel" }
 }

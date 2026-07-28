@@ -31,6 +31,26 @@ The GTNH modifier lineup ported onto TiC3. (Most notably lapis = luck again! )
 
 With Jade installed, sneak while looking at a block to see its effective tool, whether your held tool can harvest it, and the required mining level. 
 
+### - Strict Tiers
+
+Enable strict tiers in the config to strip vanilla mining levels off a lot of vanilla blocks, forcing the tiers outright
+
+```toml
+[tiers]
+    strictTiers = true
+```
+
+### - GTNH Station Recipes
+
+Re-gates the Tinkers tables the GTNH way.
+
+```toml
+[stations]
+    gtnhStationRecipes = true
+```
+
+Patterns come from 4 paper + a stick instead of planks, the Crafting Station costs 3 patterns and loses its log and table shortcuts, the Part Builder wants sticks on top of its planks, and the Tinker Station chains off a finished Crafting Station.
+
 --------------------------------------
 
 ## Dependencies

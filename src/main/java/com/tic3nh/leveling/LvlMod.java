@@ -1,5 +1,12 @@
 package com.tic3nh.leveling;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Projectile;
+
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -7,6 +14,7 @@ import slimeknights.tconstruct.library.modifiers.hook.build.RawDataModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.build.VolatileDataModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BlockHarvestModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileLaunchModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.SlotType;
@@ -19,14 +27,14 @@ import slimeknights.tconstruct.library.tools.nbt.ToolDataNBT;
 import slimeknights.tconstruct.library.utils.RestrictedCompoundTag;
 
 public class LvlMod extends NoLevelsModifier
-        implements BlockHarvestModifierHook, MeleeHitModifierHook, VolatileDataModifierHook,
-                   RawDataModifierHook {
+        implements BlockHarvestModifierHook, MeleeHitModifierHook, ProjectileLaunchModifierHook,
+                   VolatileDataModifierHook, RawDataModifierHook {
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hooks) {
         super.registerHooks(hooks);
         hooks.addHook(this, ModifierHooks.BLOCK_HARVEST, ModifierHooks.MELEE_HIT,
-                ModifierHooks.VOLATILE_DATA, ModifierHooks.RAW_DATA);
+                ModifierHooks.PROJECTILE_LAUNCH, ModifierHooks.VOLATILE_DATA, ModifierHooks.RAW_DATA);
     }
 
     @Override
@@ -46,6 +54,16 @@ public class LvlMod extends NoLevelsModifier
             LvlLogic.addXp(tool, context.getPlayerAttacker(), hearts);
         }
         Bonuses.noteCombatUsage(tool, context.getLivingTarget());
+    }
+
+    // bows level per shot like iguana tweaks, secondary multishot arrows do not count
+    @Override
+    public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter,
+                                   Projectile projectile, @Nullable AbstractArrow arrow,
+                                   ModDataNBT persistentData, boolean primary) {
+        if (primary && shooter instanceof Player player && !player.level().isClientSide()) {
+            LvlLogic.addXp(tool, player, 1);
+        }
     }
 
     @Override

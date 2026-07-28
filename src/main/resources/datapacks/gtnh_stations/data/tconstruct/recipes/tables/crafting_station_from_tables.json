@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [ { "type": "forge:false" } ],
+  "key": {
+    "w": {
+      "tag": "tconstruct:tables"
+    }
+  },
+  "pattern": [
+    "w"
+  ],
+  "result": {
+    "item": "tconstruct:crafting_station"
+  }
+}

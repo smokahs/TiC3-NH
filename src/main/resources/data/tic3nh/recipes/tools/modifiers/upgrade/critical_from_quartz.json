@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    { "item": "minecraft:flint" },
+    { "tag": "forge:gems/quartz" },
+    { "tag": "forge:gems/quartz" }
+  ],
+  "level": 1,
+  "result": "tic3nh:critical",
+  "slots": { "upgrades": 1 },
+  "tools": { "tag": "tconstruct:modifiable/melee" }
+}
