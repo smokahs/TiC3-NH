@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:item_exists",
+        "item": "gtceu:clay_dust"
+      }
+    }
+  ],
+  "pattern": [
+    "c c",
+    " c "
+  ],
+  "key": {
+    "c": { "item": "minecraft:clay_ball" }
+  },
+  "result": { "item": "tic3nh:unfired_clay_bucket" }
+}
