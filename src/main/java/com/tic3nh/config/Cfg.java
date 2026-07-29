@@ -91,14 +91,7 @@ public final class Cfg {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
         NEW_HORIZONS_MODE = b.comment(
-                "Play the GregTech New Horizons defaults instead of this mod's own.",
-                "Every setting below that you have NOT changed switches to its GTNH value; anything you",
-                "did change stays yours, so this is a starting point and not a lock. What it changes:",
-                "  nerf: regular tools/hoes/swords nerfed, stone tools disabled, gtceu exempted",
-                "  repair: durability 75%, repair modifier penalty on",
-                "  tiers/stations: strict tiers and GTNH station recipes on",
-                "  leveling: tool and weapon XP 125%, random bonuses OFF (GTNH never rolls them)",
-                "  boost: boost XP 125% and 1.15 per tier")
+                "Play the GregTech New Horizons default config options.")
                 .define("newHorizonsMode", false);
 
         b.comment("Make regular (non-Tinkers) tools useless, forcing players onto Tinkers tools.",
@@ -126,14 +119,18 @@ public final class Cfg {
                 "true: only the listed tools/mods are nerfed.")
                 .define("exclusionIsWhitelist", false);
 
-        EXCLUDED_TOOLS = b.comment("Digging tool ids, e.g. \"minecraft:diamond_pickaxe\".")
-                .defineListAllowEmpty("excludedTools", List.<String>of(), Cfg::isResourceId);
+        // wood stays usable so a fresh world can still reach a crafting station
+        EXCLUDED_TOOLS = preset(b.comment("Digging tool ids, e.g. \"minecraft:diamond_pickaxe\".")
+                .defineListAllowEmpty("excludedTools", List.<String>of(), Cfg::isResourceId),
+                List.of("minecraft:wooden_pickaxe", "minecraft:wooden_axe", "minecraft:wooden_shovel"));
 
-        EXCLUDED_SWORDS = b.comment("Sword ids, e.g. \"minecraft:diamond_sword\".")
-                .defineListAllowEmpty("excludedSwords", List.<String>of(), Cfg::isResourceId);
+        EXCLUDED_SWORDS = preset(b.comment("Sword ids, e.g. \"minecraft:diamond_sword\".")
+                .defineListAllowEmpty("excludedSwords", List.<String>of(), Cfg::isResourceId),
+                List.of("minecraft:wooden_sword"));
 
-        EXCLUDED_HOES = b.comment("Hoe ids, e.g. \"minecraft:diamond_hoe\".")
-                .defineListAllowEmpty("excludedHoes", List.<String>of(), Cfg::isResourceId);
+        EXCLUDED_HOES = preset(b.comment("Hoe ids, e.g. \"minecraft:diamond_hoe\".")
+                .defineListAllowEmpty("excludedHoes", List.<String>of(), Cfg::isResourceId),
+                List.of("minecraft:wooden_hoe"));
 
         EXCLUDED_BOWS = b.comment("Bow/crossbow ids, e.g. \"minecraft:crossbow\".")
                 .defineListAllowEmpty("excludedBows", List.<String>of(), Cfg::isResourceId);
@@ -295,21 +292,9 @@ public final class Cfg {
         return value;
     }
 
-    /**
-     * Reads a setting, letting New Horizons Mode stand in for any value the pack never changed.
-     * A pack that edited the key keeps its own value, so the mode is a set of defaults, not a lock.
-     */
-    @SuppressWarnings("unchecked")
+    // config values are read long before the file is, most of all by attribute events
     private static <T> T value(ForgeConfigSpec.ConfigValue<T> config) {
-        if (!loaded()) {
-            return config.getDefault();
-        }
-        T current = config.get();
-        if (!NEW_HORIZONS_MODE.get()) {
-            return current;
-        }
-        Object horizons = HORIZONS.get(config);
-        return horizons != null && current.equals(config.getDefault()) ? (T) horizons : current;
+        return loaded() ? config.get() : config.getDefault();
     }
 
     public static boolean nerfRegularTools() {
@@ -445,32 +430,46 @@ public final class Cfg {
     @SubscribeEvent
     public static void onLoad(ModConfigEvent.Loading event) {
         invalidate();
-        logHorizons();
+        applyHorizons();
     }
 
     @SubscribeEvent
     public static void onReload(ModConfigEvent.Reloading event) {
         invalidate();
-        logHorizons();
+        applyHorizons();
     }
 
-    // the mode is invisible in the config file itself, so say what it did
-    private static void logHorizons() {
+    /**
+     * Writes the GTNH values straight into the config file, so the settings the mode changes are the
+     * ones you see and can edit. Held there while the mode is on; turn it off to tune one of them.
+     */
+    private static void applyHorizons() {
         if (!loaded() || !NEW_HORIZONS_MODE.get()) {
             return;
         }
-        List<String> applied = new ArrayList<>();
-        List<String> kept = new ArrayList<>();
+        List<String> written = new ArrayList<>();
         HORIZONS.forEach((config, horizons) -> {
-            String path = String.join(".", config.getPath());
-            (config.get().equals(config.getDefault()) ? applied : kept).add(path);
+            if (!config.get().equals(horizons)) {
+                write(config, horizons);
+                written.add(String.join(".", config.getPath()));
+            }
         });
-        Collections.sort(applied);
-        Collections.sort(kept);
-        TiC3NH.LOGGER.info("New Horizons Mode on, applying {} GTNH values: {}", applied.size(), applied);
-        if (!kept.isEmpty()) {
-            TiC3NH.LOGGER.info("New Horizons Mode is leaving your own values alone for: {}", kept);
+        if (written.isEmpty()) {
+            return;
         }
+
+        // one save covers every value set above
+        NEW_HORIZONS_MODE.save();
+        invalidate();
+
+        Collections.sort(written);
+        TiC3NH.LOGGER.info("New Horizons Mode wrote {} GTNH values into the config: {}",
+                written.size(), written);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> void write(ForgeConfigSpec.ConfigValue<T> config, Object horizons) {
+        config.set((T) horizons);
     }
 
     private static void invalidate() {
