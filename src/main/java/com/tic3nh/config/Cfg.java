@@ -122,7 +122,8 @@ public final class Cfg {
         // wood stays usable so a fresh world can still reach a crafting station
         EXCLUDED_TOOLS = preset(b.comment("Digging tool ids, e.g. \"minecraft:diamond_pickaxe\".")
                 .defineListAllowEmpty("excludedTools", List.<String>of(), Cfg::isResourceId),
-                List.of("minecraft:wooden_pickaxe", "minecraft:wooden_axe", "minecraft:wooden_shovel"));
+                List.of("minecraft:wooden_pickaxe", "minecraft:wooden_axe", "minecraft:wooden_shovel",
+                        "hungeroverhauled:healing_axe"));
 
         EXCLUDED_SWORDS = preset(b.comment("Sword ids, e.g. \"minecraft:diamond_sword\".")
                 .defineListAllowEmpty("excludedSwords", List.<String>of(), Cfg::isResourceId),

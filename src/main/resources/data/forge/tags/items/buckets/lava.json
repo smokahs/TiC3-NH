@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lava_bucket",
+    "tic3nh:lava_clay_bucket"
+  ]
+}

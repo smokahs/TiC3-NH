@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:water_bucket",
+    "tic3nh:water_clay_bucket"
+  ]
+}
