@@ -6,7 +6,6 @@ import slimeknights.tconstruct.library.modifiers.hook.behavior.RepairFactorModif
 import slimeknights.tconstruct.library.modifiers.hook.build.ToolStatsModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
@@ -40,18 +39,20 @@ public class RepairMod extends NoLevelsModifier
         }
     }
 
+    // counts what the player spent, not what is left: leveling keeps handing out fresh slots
     @Override
     public float getRepairFactor(IToolStackView tool, ModifierEntry entry, float factor) {
         if (!Cfg.repairModifierPenalty()) {
             return factor;
         }
-        int freeSlots = tool.getFreeSlots(SlotType.UPGRADE);
-        float mult = switch (Math.min(freeSlots, 3)) {
-            case 0 -> 0.7f;
-            case 1 -> 0.8f;
-            case 2 -> 0.9f;
-            default -> 1.0f;
-        };
+        int used = 0;
+        for (ModifierEntry upgrade : tool.getUpgrades().getModifiers()) {
+            used += upgrade.getLevel();
+        }
+        if (used <= 0) {
+            return factor;
+        }
+        float mult = Math.max(Cfg.repairPenaltyFloor(), 1f - used * Cfg.repairPenaltyPerModifier());
         return factor * mult;
     }
 }

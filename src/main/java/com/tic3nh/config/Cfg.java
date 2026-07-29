@@ -44,6 +44,8 @@ public final class Cfg {
     public static final ForgeConfigSpec.IntValue DURABILITY_PERCENTAGE;
     public static final ForgeConfigSpec.IntValue MINING_SPEED_PERCENTAGE;
     public static final ForgeConfigSpec.BooleanValue REPAIR_MODIFIER_PENALTY;
+    public static final ForgeConfigSpec.DoubleValue REPAIR_PENALTY_PER_MODIFIER;
+    public static final ForgeConfigSpec.DoubleValue REPAIR_PENALTY_FLOOR;
 
     public static final ForgeConfigSpec.BooleanValue STRICT_TIERS;
     public static final ForgeConfigSpec.BooleanValue GTNH_STATIONS;
@@ -57,6 +59,7 @@ public final class Cfg {
     public static final ForgeConfigSpec.DoubleValue MINING_SPEED_DIVIDER;
     public static final ForgeConfigSpec.IntValue XP_PENALTY;
     public static final ForgeConfigSpec.IntValue EXTRA_MODIFIERS;
+    public static final ForgeConfigSpec.IntValue STARTING_UPGRADE_SLOTS;
     public static final ForgeConfigSpec.ConfigValue<List<? extends Number>> MODIFIERS_AT_LEVELS;
     public static final ForgeConfigSpec.BooleanValue RANDOM_BONUSES;
     public static final ForgeConfigSpec.ConfigValue<List<? extends Number>> BONUSES_AT_LEVELS;
@@ -74,8 +77,10 @@ public final class Cfg {
     public static final ForgeConfigSpec.BooleanValue BOOST_LOST_ON_HEAD_CHANGE;
     public static final ForgeConfigSpec.BooleanValue REMOVE_MOB_HEAD;
 
+    // GTNH's schedule: every level to 3, every 2 to 11, every 3 to 20, every 4 to 40, every 5 to 95,
+    // then the cap itself, for the 26 modifiers the wiki quotes at level 99
     private static final List<Integer> DEFAULT_MODIFIER_LEVELS = List.of(
-            2, 3, 5, 7, 9, 11, 14, 17, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95);
+            2, 3, 5, 7, 9, 11, 14, 17, 20, 24, 28, 32, 36, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 99);
 
     private static final List<Integer> DEFAULT_BONUS_LEVELS = List.of(2, 3, 4, 5, 6);
 
@@ -149,8 +154,15 @@ public final class Cfg {
         MINING_SPEED_PERCENTAGE = b.comment("Mining speed of all tools, as a percent. GTNH runs 100.")
                 .defineInRange("miningSpeedPercentage", 100, 1, 999);
 
-        REPAIR_MODIFIER_PENALTY = preset(b.comment("Tools with used upgrade slots cost more to repair.")
+        REPAIR_MODIFIER_PENALTY = preset(b.comment("Modified tools recover less durability per repair.")
                 .define("repairModifierPenalty", false), true);
+
+        REPAIR_PENALTY_PER_MODIFIER = b.comment(
+                "Repair yield lost per applied modifier level. 0.1 = -10% each, so 3 modifiers repair at 70%.")
+                .defineInRange("repairPenaltyPerModifier", 0.1d, 0.0d, 1.0d);
+
+        REPAIR_PENALTY_FLOOR = b.comment("Worst repair multiplier the penalty is allowed to reach.")
+                .defineInRange("repairPenaltyFloor", 0.7d, 0.0d, 1.0d);
 
         b.pop();
 
@@ -200,6 +212,14 @@ public final class Cfg {
 
         EXTRA_MODIFIERS = b.comment("Free upgrade slots granted to every tool on top of leveling.")
                 .defineInRange("extraModifiers", 0, 0, 9);
+
+        STARTING_UPGRADE_SLOTS = preset(b.comment(
+                "Upgrade slots a freshly built tool carries before it levels at all.",
+                "-1 keeps each tool type's own count, which is what Tinkers ships: 3 for a pickaxe,",
+                "2 for a hammer, 5 for a sky staff. GTNH starts every tool at 0 and hands out all 26",
+                "slots through leveling. Material traits like writable still add their slot either way.",
+                "Changing this on a live world can leave already-modified tools with negative free slots.")
+                .defineInRange("startingUpgradeSlots", -1, -1, 9), 0);
 
         MODIFIERS_AT_LEVELS = b.comment("Tool levels that grant an upgrade slot.")
                 .<Number>defineList("modifiersAtLevels", DEFAULT_MODIFIER_LEVELS, Cfg::isLevel);
@@ -326,6 +346,18 @@ public final class Cfg {
 
     public static boolean repairModifierPenalty() {
         return value(REPAIR_MODIFIER_PENALTY);
+    }
+
+    public static float repairPenaltyPerModifier() {
+        return value(REPAIR_PENALTY_PER_MODIFIER).floatValue();
+    }
+
+    public static float repairPenaltyFloor() {
+        return value(REPAIR_PENALTY_FLOOR).floatValue();
+    }
+
+    public static int startingUpgradeSlots() {
+        return value(STARTING_UPGRADE_SLOTS);
     }
 
     public static boolean strictTiers() {

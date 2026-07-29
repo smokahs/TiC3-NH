@@ -20,6 +20,7 @@ import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
+import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
@@ -74,6 +75,22 @@ public class LvlMod extends NoLevelsModifier
         if (slots > 0) {
             volatileData.addSlots(SlotType.UPGRADE, slots);
         }
+
+        // GTNH tools start with nothing and earn every slot by leveling, so hand the tool's own back
+        int starting = Cfg.startingUpgradeSlots();
+        if (starting >= 0) {
+            int definitionSlots = definitionUpgradeSlots(context);
+            if (definitionSlots != starting) {
+                volatileData.addSlots(SlotType.UPGRADE, starting - definitionSlots);
+            }
+        }
+    }
+
+    // runs the tool definition's own hook in isolation, so material traits keep the slots they grant
+    private static int definitionUpgradeSlots(IToolContext context) {
+        ToolDataNBT probe = new ToolDataNBT();
+        context.getHook(ToolHooks.VOLATILE_DATA).addVolatileData(context, probe);
+        return probe.getSlots(SlotType.UPGRADE);
     }
 
     @Override
