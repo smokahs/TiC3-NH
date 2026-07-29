@@ -32,7 +32,7 @@ public final class StrictTiers {
         Path source = ModList.get().getModFileById(TiC3NH.MOD_ID).getFile()
                 .findResource("datapacks", NAME);
 
-        boolean forced = Cfg.loaded() && Cfg.STRICT_TIERS.get();
+        boolean forced = Cfg.loaded() && Cfg.strictTiers();
 
         event.addRepositorySource(consumer -> {
             Pack pack = Pack.readMetaAndCreate(

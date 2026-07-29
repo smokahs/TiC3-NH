@@ -30,15 +30,19 @@ public class RepairMod extends NoLevelsModifier
 
     @Override
     public void addToolStats(IToolContext context, ModifierEntry modifier, ModifierStatsBuilder builder) {
-        int pct = Cfg.DURABILITY_PERCENTAGE.get();
+        int pct = Cfg.durabilityPercentage();
         if (pct != 100) {
             builder.multiplier(ToolStats.DURABILITY, pct / 100.0);
+        }
+        int speed = Cfg.miningSpeedPercentage();
+        if (speed != 100) {
+            builder.multiplier(ToolStats.MINING_SPEED, speed / 100.0);
         }
     }
 
     @Override
     public float getRepairFactor(IToolStackView tool, ModifierEntry entry, float factor) {
-        if (!Cfg.REPAIR_MODIFIER_PENALTY.get()) {
+        if (!Cfg.repairModifierPenalty()) {
             return factor;
         }
         int freeSlots = tool.getFreeSlots(SlotType.UPGRADE);

@@ -26,6 +26,8 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolDataNBT;
 import slimeknights.tconstruct.library.utils.RestrictedCompoundTag;
 
+import com.tic3nh.config.Cfg;
+
 public class LvlMod extends NoLevelsModifier
         implements BlockHarvestModifierHook, MeleeHitModifierHook, ProjectileLaunchModifierHook,
                    VolatileDataModifierHook, RawDataModifierHook {
@@ -80,10 +82,42 @@ public class LvlMod extends NoLevelsModifier
         int cur = LvlLogic.baseRequiredXp(tool);
         int xp = data.getInt(LvlKeys.TOOL_XP);
         int old = data.getInt(LvlKeys.XP_REQ_REF);
+
+        // a part swap changes the requirement, rescale so the fraction toward the next level survives it
         if (xp > 0 && old > 0 && old != cur) {
-            data.putInt(LvlKeys.TOOL_XP, Math.max(0, Math.round(xp * (float) cur / old)));
+            xp = Math.max(0, Math.round(xp * (float) cur / old));
+            data.putInt(LvlKeys.TOOL_XP, xp);
         }
         data.putInt(LvlKeys.XP_REQ_REF, cur);
+
+        // then charge for the swap itself, on top of the rescale
+        String parts = materialFingerprint(tool);
+        String stored = data.getString(LvlKeys.MATERIAL_REF);
+        if (!stored.isEmpty() && !stored.equals(parts)) {
+            int pct = Cfg.loaded() ? Cfg.XP_PENALTY.get() : 0;
+            if (pct > 0 && xp > 0) {
+                data.putInt(LvlKeys.TOOL_XP, Math.max(0, xp - (int) Math.ceil(xp * pct / 100f)));
+            }
+        }
+        if (!parts.equals(stored)) {
+            data.putString(LvlKeys.MATERIAL_REF, parts);
+        }
+    }
+
+    // tic3 only counts a part swap when the material variant changes, so the variants are the whole identity
+    private static String materialFingerprint(IToolStackView tool) {
+        int size = tool.getMaterials().size();
+        if (size == 0) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            if (i > 0) {
+                sb.append(',');
+            }
+            sb.append(tool.getMaterial(i).getVariant());
+        }
+        return sb.toString();
     }
 
     @Override

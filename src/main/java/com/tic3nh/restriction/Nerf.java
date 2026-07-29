@@ -1,10 +1,14 @@
 package com.tic3nh.restriction;
 
+import java.util.List;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +17,7 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.Tiers;
 
 import net.minecraftforge.event.ItemAttributeModifierEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -39,7 +44,8 @@ public final class Nerf {
 
     @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
-        if (shouldNerf(event.getItemStack()) || shouldNerfSword(event.getItemStack())) {
+        ItemStack stack = event.getItemStack();
+        if (shouldNerf(stack) || shouldNerfSword(stack) || shouldNerfBow(stack)) {
             event.getToolTip().add(Component.translatable("tic3nh.tooltip.tool_nerfed")
                     .withStyle(ChatFormatting.RED));
         }
@@ -64,50 +70,62 @@ public final class Nerf {
         }
     }
 
+    // cancelling the draw covers bows and crossbows in one place
+    @SubscribeEvent
+    public static void onUseStart(LivingEntityUseItemEvent.Start event) {
+        if (shouldNerfBow(event.getItem())) {
+            event.setCanceled(true);
+        }
+    }
+
     private static boolean shouldNerf(ItemStack stack) {
         if (!(stack.getItem() instanceof DiggerItem) || !nerfable(stack)) {
             return false;
         }
-        if (stoneTier(stack) && Cfg.DISABLE_STONE_TOOLS.get()) {
-            return true;
+        if (stack.getItem() instanceof HoeItem) {
+            return !isExcluded(stack, Cfg.EXCLUDED_HOES.get())
+                    && (Cfg.nerfRegularHoes() || stoneNerf(stack));
         }
-        if (!Cfg.NERF_VANILLA_TOOLS.get()) {
+        if (isExcluded(stack, Cfg.EXCLUDED_TOOLS.get())) {
             return false;
         }
-        if (stack.getItem() instanceof HoeItem && !Cfg.NERF_VANILLA_HOES.get()) {
-            return false;
-        }
-        return true;
+        return Cfg.nerfRegularTools() || stoneNerf(stack);
     }
 
     private static boolean shouldNerfSword(ItemStack stack) {
-        if (!(stack.getItem() instanceof SwordItem) || !nerfable(stack)) {
+        if (!(stack.getItem() instanceof SwordItem) || !nerfable(stack)
+                || isExcluded(stack, Cfg.EXCLUDED_SWORDS.get())) {
             return false;
         }
-        if (stoneTier(stack) && Cfg.DISABLE_STONE_TOOLS.get()) {
-            return true;
+        return Cfg.nerfRegularSwords() || stoneNerf(stack);
+    }
+
+    private static boolean shouldNerfBow(ItemStack stack) {
+        if (!(stack.getItem() instanceof BowItem || stack.getItem() instanceof CrossbowItem)
+                || !nerfable(stack) || isExcluded(stack, Cfg.EXCLUDED_BOWS.get())) {
+            return false;
         }
-        return Cfg.NERF_VANILLA_SWORDS.get();
+        return Cfg.nerfRegularBows();
     }
 
     private static boolean nerfable(ItemStack stack) {
         return Cfg.loaded() && !stack.isEmpty()
-                && !stack.is(TinkerTags.Items.MODIFIABLE)
-                && !isExcluded(stack);
+                && !stack.is(TinkerTags.Items.MODIFIABLE);
     }
 
-    private static boolean stoneTier(ItemStack stack) {
-        return stack.getItem() instanceof TieredItem tiered && tiered.getTier() == Tiers.STONE;
+    private static boolean stoneNerf(ItemStack stack) {
+        return Cfg.disableStoneTools()
+                && stack.getItem() instanceof TieredItem tiered && tiered.getTier() == Tiers.STONE;
     }
 
-    private static boolean isExcluded(ItemStack stack) {
+    private static boolean isExcluded(ItemStack stack, List<? extends String> items) {
         ResourceLocation id = ForgeRegistries.ITEMS.getKey(stack.getItem());
         if (id == null) {
             return false;
         }
-        boolean listed = Cfg.EXCLUDED_TOOLS.get().contains(id.toString())
-                || Cfg.EXCLUDED_MOD_TOOLS.get().contains(id.getNamespace());
+        boolean listed = items.contains(id.toString())
+                || Cfg.excludedMods().contains(id.getNamespace());
 
-        return Cfg.EXCLUDED_IS_WHITELIST.get() != listed;
+        return Cfg.EXCLUSION_IS_WHITELIST.get() != listed;
     }
 }

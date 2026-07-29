@@ -14,6 +14,7 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
+import com.tic3nh.config.Cfg;
 import com.tic3nh.mininglevel.GtTiers;
 import com.tic3nh.mininglevel.MineKeys;
 
@@ -33,13 +34,14 @@ public final class LvlLogic {
     public static int requiredXp(IToolStackView tool, int level) {
         ResourceLocation id = tool.getDefinition().getId();
         float base;
-        if (isWeapon(id)) {
+        boolean weapon = isWeapon(id);
+        if (weapon) {
             float attack = tool.getStats().get(ToolStats.ATTACK_DAMAGE);
             base = 140f * Math.max(1f, attack) * 1.2f;
         } else {
             base = 100f;
 
-            base += tool.getStats().get(ToolStats.MINING_SPEED) / LvlKeys.MINING_SPEED_DIVIDER;
+            base += tool.getStats().get(ToolStats.MINING_SPEED) / LvlKeys.miningSpeedDivider();
 
             int hl = gtnhOrdinal(tool.getStats().get(ToolStats.HARVEST_TIER));
             if (hl < 1) {
@@ -51,8 +53,9 @@ public final class LvlLogic {
         }
         base *= toolTypeMultiplier(id);
         if (level > 1) {
-            base *= (float) Math.pow(LvlKeys.XP_PER_LEVEL_MULTIPLIER, level - 1);
+            base *= (float) Math.pow(LvlKeys.xpPerLevelMultiplier(), level - 1);
         }
+        base *= (weapon ? Cfg.xpRequiredWeaponsPercentage() : Cfg.xpRequiredToolsPercentage()) / 100f;
         return Math.max(1, Math.round(base));
     }
 
@@ -70,29 +73,31 @@ public final class LvlLogic {
         if (reduced < 2) {
             base -= 15f;
         }
-        base += tool.getStats().get(ToolStats.MINING_SPEED) / LvlKeys.MINING_SPEED_DIVIDER;
+        base += tool.getStats().get(ToolStats.MINING_SPEED) / LvlKeys.miningSpeedDivider();
         base *= toolTypeMultiplier(tool.getDefinition().getId());
-        float mult = MineKeys.XP_PER_BOOST_LEVEL_MULTIPLIER;
+        float mult = MineKeys.xpPerBoostLevelMultiplier();
         if (reduced >= 1) {
             base *= (float) Math.pow(mult, reduced - 1);
         } else {
             base /= mult * mult;
         }
+        base *= Cfg.xpRequiredPickBoostPercentage() / 100f;
         return Math.max(1, Math.round(base));
     }
 
     public static void addXp(IToolStackView tool, @Nullable Player player, int amount) {
-        if (amount <= 0) {
+        if (amount <= 0 || (Cfg.loaded() && !Cfg.TOOL_LEVELING.get())) {
             return;
         }
+        int max = LvlKeys.maxLevel();
         ModDataNBT data = tool.getPersistentData();
         int level = data.getInt(LvlKeys.TOOL_LEVEL);
-        if (level >= LvlKeys.MAX_LEVEL) {
+        if (level >= max) {
             return;
         }
         int xp = data.getInt(LvlKeys.TOOL_XP) + amount;
         boolean leveled = false;
-        while (level < LvlKeys.MAX_LEVEL) {
+        while (level < max) {
             int required = requiredXp(tool, level);
             if (xp < required) {
                 break;
@@ -102,7 +107,7 @@ public final class LvlLogic {
             leveled = true;
             maybeRandomBonus(tool, player, level);
         }
-        if (level >= LvlKeys.MAX_LEVEL) {
+        if (level >= max) {
             xp = 0;
         }
         data.putInt(LvlKeys.TOOL_LEVEL, level);
@@ -119,7 +124,7 @@ public final class LvlLogic {
         }
         ModDataNBT data = tool.getPersistentData();
         int oldLevel = data.getInt(LvlKeys.TOOL_LEVEL);
-        int level = Math.max(0, Math.min(LvlKeys.MAX_LEVEL, oldLevel + levels));
+        int level = Math.max(0, Math.min(LvlKeys.maxLevel(), oldLevel + levels));
 
         for (int l = oldLevel + 1; l <= level; l++) {
             maybeRandomBonus(tool, player, l);
@@ -131,7 +136,7 @@ public final class LvlLogic {
     }
 
     private static void maybeRandomBonus(IToolStackView tool, @Nullable Player player, int level) {
-        if (LvlKeys.RANDOM_BONUS_LEVELS.contains(level)) {
+        if (LvlKeys.isBonusLevel(level)) {
             Bonuses.roll(tool, player, level);
         }
     }

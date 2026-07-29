@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.Tags;
 
 import slimeknights.tconstruct.library.modifiers.ModifierId;
@@ -29,6 +30,7 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import com.tic3nh.TiC3NH;
+import com.tic3nh.config.Cfg;
 
 public final class Bonuses {
 
@@ -40,26 +42,27 @@ public final class Bonuses {
 
     private enum Bonus {
 
-        REDSTONE ("tconstruct:haste",         45,  0, 100,  true,  false, true),
-        LAPIS    ("tconstruct:luck",          40, 75,  60,  true,  true,  true),
-        AUTOSMELT("tconstruct:smelting",       3, 15,   1,  true,  false, false),
+        REDSTONE ("tconstruct:haste",         "redstone",          45,  0, 100,  true,  false, true),
+        LAPIS    ("tconstruct:luck",          "luckLooting",       40, 75,  60,  true,  true,  true),
+        AUTOSMELT("tconstruct:smelting",      "autosmelt",          3, 15,   1,  true,  false, false),
 
-        DIAMOND  ("tconstruct:diamond",       30, 15,  20,  true,  false, false),
-        EMERALD  ("tconstruct:emerald",       35, 30,  25,  true,  false, false),
+        DIAMOND  ("tconstruct:diamond",       "diamond",           30, 15,  20,  true,  false, false),
+        EMERALD  ("tconstruct:emerald",       "emerald",           35, 30,  25,  true,  false, false),
 
-        REINFORCED("tconstruct:reinforced",   77, 55,  65,  true,  true,  true),
-        ATTACK   ("tconstruct:sharpness",      7, 110, 25,  false, true,  false),
-        BLAZE    ("tconstruct:fiery",          3, 45,  15,  false, true,  false),
-        SMITE    ("tconstruct:smite",          3, 40,  15,  false, true,  false),
-        BANE     ("tconstruct:bane_of_sssss",  3, 40,  15,  false, true,  false),
-        BEHEADING("tconstruct:severing",       3, 50,  10,  false, true,  false),
-        LIFESTEAL("tconstruct:necrotic",       3, 30,  10,  false, true,  false),
-        KNOCKBACK("tconstruct:knockback",     10, 50,  50,  false, true,  true),
-        STONEBOUND("tconstruct:stonebound",    5,  1,   1,  true,  false, false),
-        JAGGED   ("tconstruct:jagged",         1,  5,   1,  false, true,  false),
-        CRITICAL ("tic3nh:critical",           1,  2,   0,  false, true,  false);
+        REINFORCED("tconstruct:reinforced",   "reinforced",        77, 55,  65,  true,  true,  true),
+        ATTACK   ("tconstruct:sharpness",     "attack",             7, 110, 25,  false, true,  false),
+        BLAZE    ("tconstruct:fiery",         "fiery",              3, 45,  15,  false, true,  false),
+        SMITE    ("tconstruct:smite",         "smite",              3, 40,  15,  false, true,  false),
+        BANE     ("tconstruct:bane_of_sssss", "baneOfArthropods",   3, 40,  15,  false, true,  false),
+        BEHEADING("tconstruct:severing",      "beheading",          3, 50,  10,  false, true,  false),
+        LIFESTEAL("tconstruct:necrotic",      "lifeSteal",          3, 30,  10,  false, true,  false),
+        KNOCKBACK("tconstruct:knockback",     "knockback",         10, 50,  50,  false, true,  true),
+        STONEBOUND("tconstruct:stonebound",   "stonebound",         5,  1,   1,  true,  false, false),
+        JAGGED   ("tconstruct:jagged",        "jagged",             1,  5,   1,  false, true,  false),
+        CRITICAL ("tic3nh:critical",          "critical",           1,  2,   0,  false, true,  false);
 
         final ModifierId id;
+        final String cfgName;
         final int toolWeight;
         final int weaponWeight;
         final int bowWeight;
@@ -68,9 +71,19 @@ public final class Bonuses {
         final boolean usefulBow;
         final ResourceLocation usageKey;
 
-        Bonus(String id, int tool, int weapon, int bow,
+        // filled in by defineConfig, null until the spec is built
+        ForgeConfigSpec.BooleanValue allowCfg;
+        ForgeConfigSpec.IntValue toolWeightCfg;
+        ForgeConfigSpec.IntValue weaponWeightCfg;
+        ForgeConfigSpec.IntValue bowWeightCfg;
+        ForgeConfigSpec.BooleanValue usefulToolCfg;
+        ForgeConfigSpec.BooleanValue usefulWeaponCfg;
+        ForgeConfigSpec.BooleanValue usefulBowCfg;
+
+        Bonus(String id, String cfgName, int tool, int weapon, int bow,
               boolean usefulTool, boolean usefulWeapon, boolean usefulBow) {
             this.id = new ModifierId(id);
+            this.cfgName = cfgName;
             this.toolWeight = tool;
             this.weaponWeight = weapon;
             this.bowWeight = bow;
@@ -80,7 +93,19 @@ public final class Bonuses {
             this.usageKey = new ResourceLocation(TiC3NH.MOD_ID, USAGE_PREFIX + name().toLowerCase(Locale.ROOT));
         }
 
+        boolean allowed() {
+            return allowCfg == null || !Cfg.loaded() || allowCfg.get();
+        }
+
         int weight(Category cat) {
+            ForgeConfigSpec.IntValue cfg = switch (cat) {
+                case HARVEST -> toolWeightCfg;
+                case WEAPON -> weaponWeightCfg;
+                case BOW -> bowWeightCfg;
+            };
+            if (cfg != null && Cfg.loaded()) {
+                return cfg.get();
+            }
             return switch (cat) {
                 case HARVEST -> toolWeight;
                 case WEAPON -> weaponWeight;
@@ -89,12 +114,72 @@ public final class Bonuses {
         }
 
         boolean useful(Category cat) {
+            ForgeConfigSpec.BooleanValue cfg = switch (cat) {
+                case HARVEST -> usefulToolCfg;
+                case WEAPON -> usefulWeaponCfg;
+                case BOW -> usefulBowCfg;
+            };
+            if (cfg != null && Cfg.loaded()) {
+                return cfg.get();
+            }
             return switch (cat) {
                 case HARVEST -> usefulTool;
                 case WEAPON -> usefulWeapon;
                 case BOW -> usefulBow;
             };
         }
+    }
+
+    // mirrors IguanaTweaks' BonusModifierDefaults.cfg: one weight table and one useful table per category
+    public static void defineConfig(ForgeConfigSpec.Builder b) {
+        b.comment("Random bonus tables. Weights are summed, then one is picked at random inside that sum,",
+                  "so a weight of 0 or a useful flag of false means the bonus never rolls for that category.")
+                .push("bonuses");
+
+        b.comment("Disable a bonus everywhere, whatever the weights say.").push("allow");
+        for (Bonus x : Bonus.values()) {
+            x.allowCfg = b.define(x.cfgName, true);
+        }
+        b.pop();
+
+        b.comment("Roll weights for harvest tools.").push("toolWeights");
+        for (Bonus x : Bonus.values()) {
+            x.toolWeightCfg = b.defineInRange(x.cfgName, x.toolWeight, 0, 9999);
+        }
+        b.pop();
+
+        b.comment("Roll weights for weapons.").push("weaponWeights");
+        for (Bonus x : Bonus.values()) {
+            x.weaponWeightCfg = b.defineInRange(x.cfgName, x.weaponWeight, 0, 9999);
+        }
+        b.pop();
+
+        b.comment("Roll weights for bows.").push("bowWeights");
+        for (Bonus x : Bonus.values()) {
+            x.bowWeightCfg = b.defineInRange(x.cfgName, x.bowWeight, 0, 9999);
+        }
+        b.pop();
+
+        b.comment("Bonuses worth rolling on a harvest tool, used when leveling.usefulBonuses is on.")
+                .push("usefulToolBonuses");
+        for (Bonus x : Bonus.values()) {
+            x.usefulToolCfg = b.define(x.cfgName, x.usefulTool);
+        }
+        b.pop();
+
+        b.comment("Bonuses worth rolling on a weapon.").push("usefulWeaponBonuses");
+        for (Bonus x : Bonus.values()) {
+            x.usefulWeaponCfg = b.define(x.cfgName, x.usefulWeapon);
+        }
+        b.pop();
+
+        b.comment("Bonuses worth rolling on a bow.").push("usefulBowBonuses");
+        for (Bonus x : Bonus.values()) {
+            x.usefulBowCfg = b.define(x.cfgName, x.usefulBow);
+        }
+        b.pop();
+
+        b.pop();
     }
 
     static void roll(IToolStackView tool, @Nullable Player player, int level) {
@@ -108,18 +193,30 @@ public final class Bonuses {
         ModDataNBT data = tool.getPersistentData();
         int requiredXp = Math.max(1, LvlLogic.requiredXp(tool, level));
 
+        boolean equalOdds = Cfg.loaded() && Cfg.COMPLETELY_RANDOM_BONUSES.get();
+        boolean usefulOnly = !Cfg.loaded() || Cfg.USEFUL_BONUSES.get();
+        int usageWeight = Cfg.usageBonusWeight();
+
         Bonus[] all = Bonus.values();
         float[] weights = new float[all.length];
         float total = 0f;
         for (int i = 0; i < all.length; i++) {
             Bonus b = all[i];
-            float w = b.useful(cat) ? b.weight(cat) : 0f;
-            int usage = data.getInt(b.usageKey);
-            if (usage > 0) {
-                w += (float) usage / requiredXp * LvlKeys.USAGE_BONUS_WEIGHT;
-            }
-            if (!applicable(tool, b)) {
+            float w;
+            if (!b.allowed() || !applicable(tool, b)) {
                 w = 0f;
+            } else if (equalOdds) {
+                w = 1f;
+            } else if (usefulOnly && !b.useful(cat)) {
+
+                w = 0f;
+            } else {
+                w = b.weight(cat);
+
+                int usage = data.getInt(b.usageKey);
+                if (usage > 0) {
+                    w += (float) usage / requiredXp * usageWeight;
+                }
             }
             weights[i] = w;
             total += w;

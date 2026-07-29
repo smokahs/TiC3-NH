@@ -24,7 +24,7 @@ public final class LvlTip {
 
     public static Component xp(IToolStackView tool) {
         int level = LvlLogic.level(tool);
-        if (level >= LvlKeys.MAX_LEVEL) {
+        if (level >= LvlKeys.maxLevel()) {
             return Component.translatable("tic3nh.tooltip.tool_xp",
                     Component.translatable("tic3nh.tooltip.max_level").withStyle(ChatFormatting.GOLD));
         }

@@ -15,6 +15,8 @@ import slimeknights.tconstruct.library.tools.definition.module.ToolModule;
 import slimeknights.tconstruct.library.tools.definition.module.mining.MiningTierToolHook;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import com.tic3nh.config.Cfg;
+
 public final class Penalty implements MiningTierToolHook, ToolModule {
 
     public static final Penalty INSTANCE =
@@ -41,13 +43,18 @@ public final class Penalty implements MiningTierToolHook, ToolModule {
 
     @Override
     public Tier modifyTier(IToolStackView tool, Tier tier) {
+        if (Cfg.loaded() && !Cfg.PICKAXE_BOOST_REQUIRED.get()) {
+            return tier;
+        }
         if (tool.getPersistentData().getBoolean(MineKeys.BOOSTED)) {
             return tier;
         }
 
-        int skullCap = tool.getModifierLevel(com.tic3nh.setup.reg.MINING_LEVEL_BOOST.getId());
-        if (skullCap > 0 && skullCap >= GtTiers.TIERS.indexOf(GtTiers.displayFor(tier))) {
-            return tier;
+        if (!Cfg.loaded() || Cfg.ADD_MOB_HEAD_BOOST.get()) {
+            int skullCap = tool.getModifierLevel(com.tic3nh.setup.reg.MINING_LEVEL_BOOST.getId());
+            if (skullCap > 0 && skullCap >= GtTiers.TIERS.indexOf(GtTiers.displayFor(tier))) {
+                return tier;
+            }
         }
         List<Tier> sorted = TierSortingRegistry.getSortedTiers();
         int index = sorted.indexOf(tier);

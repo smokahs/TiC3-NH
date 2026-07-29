@@ -32,7 +32,7 @@ public final class GtnhStations {
         Path source = ModList.get().getModFileById(TiC3NH.MOD_ID).getFile()
                 .findResource("datapacks", NAME);
 
-        boolean forced = Cfg.loaded() && Cfg.GTNH_STATIONS.get();
+        boolean forced = Cfg.loaded() && Cfg.gtnhStations();
 
         event.addRepositorySource(consumer -> {
             Pack pack = Pack.readMetaAndCreate(

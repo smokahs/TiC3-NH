@@ -28,6 +28,7 @@
   "tic3nh.tooltip.mining_xp": "Mining XP: %s",
   "tic3nh.tooltip.boosted": "Boosted",
   "tic3nh.message.boosted": "Mining level boosted!",
+  "tic3nh.message.mob_head_returned": "The head fell off with the tool head.",
   "modifier.tic3nh.leveling": "Leveling",
   "modifier.tic3nh.mining_level_boost": "Reanimated",
   "modifier.tic3nh.moss": "Auto-Repair",
