@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+1. Fixed `newHorizonsMode` wiping your own entries out of the `excluded*` lists on every load
+
 ## v2.4.0
 1. New **paperbark tree**, see readme
 2. New `[paperbark]` config section with `paperPerStripChance` (33) and `barkRegrowChance` (25)

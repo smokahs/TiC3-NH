@@ -94,7 +94,8 @@ public final class Cfg {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
 
         NEW_HORIZONS_MODE = b.comment(
-                "Play the GregTech New Horizons default config options.")
+                "Play the GregTech New Horizons default config options.",
+                "Values are held while on, so turn it off to change one.")
                 .define("newHorizonsMode", false);
 
         b.comment("Make regular (non-Tinkers) tools useless, forcing players onto Tinkers tools.",
@@ -477,8 +478,10 @@ public final class Cfg {
         }
         List<String> written = new ArrayList<>();
         HORIZONS.forEach((config, horizons) -> {
-            if (!config.get().equals(horizons)) {
-                write(config, horizons);
+            Object current = config.get();
+            Object wanted = merge(current, horizons);
+            if (!current.equals(wanted)) {
+                write(config, wanted);
                 written.add(String.join(".", config.getPath()));
             }
         });
@@ -495,9 +498,24 @@ public final class Cfg {
                 written.size(), written);
     }
 
+    // a scalar preset is held at the GTNH value, a list preset is only a floor: its entries stay,
+    // whatever the pack added on top survives, so excludedMods is still editable with the mode on
+    private static Object merge(Object current, Object horizons) {
+        if (!(horizons instanceof List<?> preset) || !(current instanceof List<?> existing)) {
+            return horizons;
+        }
+        List<Object> merged = new ArrayList<>(preset);
+        for (Object entry : existing) {
+            if (!merged.contains(entry)) {
+                merged.add(entry);
+            }
+        }
+        return merged;
+    }
+
     @SuppressWarnings("unchecked")
-    private static <T> void write(ForgeConfigSpec.ConfigValue<T> config, Object horizons) {
-        config.set((T) horizons);
+    private static <T> void write(ForgeConfigSpec.ConfigValue<T> config, Object value) {
+        config.set((T) value);
     }
 
     private static void invalidate() {
