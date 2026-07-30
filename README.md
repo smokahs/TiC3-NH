@@ -51,6 +51,20 @@ Re-gates the Tinkers tables the GTNH way.
 
 Patterns come from 4 paper + a stick instead of planks, the Crafting Station costs 3 patterns and loses its log and table shortcuts, the Part Builder wants sticks on top of its planks, and the Tinker Station chains off a finished Crafting Station.
 
+### - Paperbark Tree
+
+Take an axe (vanilla or Tinkers) to a paperbark log and the bark peels in four strips, 25%, 50%, 75%, then bare wood. Each strip has a 1-in-3 chance of a sheet of paper, so a whole log averages a little over one. Breaking a log gives another 10% chance of a sheet.
+
+**The bark grows back. ONLY IF it is not fully stripped.**
+
+Part-peeled logs can't be picked up, if you break one and you get the stripped log. Full wood set supported: planks, stairs, slab, fence, gate, door, trapdoor, button, pressure plate, signs and hanging signs.
+
+```toml
+[paperbark]
+    paperPerStripChance = 33
+    barkRegrowChance = 25
+```
+
 --------------------------------------
 
 ## Dependencies

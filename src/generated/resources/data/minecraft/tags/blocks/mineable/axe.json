@@ -1,0 +1,21 @@
+{
+  "values": [
+    "tic3nh:paperbark_log",
+    "tic3nh:paperbark_wood",
+    "tic3nh:stripped_paperbark_log",
+    "tic3nh:stripped_paperbark_wood",
+    "tic3nh:paperbark_planks",
+    "tic3nh:paperbark_stairs",
+    "tic3nh:paperbark_slab",
+    "tic3nh:paperbark_fence",
+    "tic3nh:paperbark_fence_gate",
+    "tic3nh:paperbark_door",
+    "tic3nh:paperbark_trapdoor",
+    "tic3nh:paperbark_button",
+    "tic3nh:paperbark_pressure_plate",
+    "tic3nh:paperbark_sign",
+    "tic3nh:paperbark_wall_sign",
+    "tic3nh:paperbark_hanging_sign",
+    "tic3nh:paperbark_wall_hanging_sign"
+  ]
+}

@@ -21,7 +21,15 @@ public final class gen {
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existing = event.getExistingFileHelper();
 
-        generator.addProvider(event.includeServer(),
-                new TierTags(output, event.getLookupProvider(), existing));
+        TierTags blockTags = new TierTags(output, event.getLookupProvider(), existing);
+        generator.addProvider(event.includeServer(), blockTags);
+        generator.addProvider(event.includeServer(), new PaperbarkItemTags(output, event.getLookupProvider(),
+                blockTags.contentsGetter(), existing));
+        generator.addProvider(event.includeServer(), new PaperbarkLoot(output));
+        generator.addProvider(event.includeServer(), new PaperbarkRecipes(output));
+
+        // block models first: the item models parent onto them
+        generator.addProvider(event.includeClient(), new PaperbarkStates(output, existing));
+        generator.addProvider(event.includeClient(), new PaperbarkItems(output, existing));
     }
 }

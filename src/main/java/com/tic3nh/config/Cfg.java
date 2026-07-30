@@ -77,6 +77,9 @@ public final class Cfg {
     public static final ForgeConfigSpec.BooleanValue BOOST_LOST_ON_HEAD_CHANGE;
     public static final ForgeConfigSpec.BooleanValue REMOVE_MOB_HEAD;
 
+    public static final ForgeConfigSpec.IntValue PAPER_PER_STRIP_CHANCE;
+    public static final ForgeConfigSpec.IntValue BARK_REGROW_CHANCE;
+
     // GTNH's schedule: every level to 3, every 2 to 11, every 3 to 20, every 4 to 40, every 5 to 95,
     // then the cap itself, for the 26 modifiers the wiki quotes at level 99
     private static final List<Integer> DEFAULT_MODIFIER_LEVELS = List.of(
@@ -278,6 +281,22 @@ public final class Cfg {
 
         b.pop();
 
+        b.comment("The paperbark tree, a paper source.",
+                  "Bark peels off a log in strips with an axe (bark, 25%, 50%, 75%, bare)",
+                  "Every stage has a chance to drop paper.")
+                .push("paperbark");
+
+        PAPER_PER_STRIP_CHANCE = b.comment("Percent chance one strip yields a sheet of paper.")
+                .defineInRange("paperPerStripChance", 33, 0, 100);
+
+        BARK_REGROW_CHANCE = b.comment(
+                "Percent chance a part-peeled log grows its bark back one stage per random tick",
+                "(a block gets one about every 68 seconds), so 25 is roughly 4-5 minutes a stage.",
+                "0 turns regrowth off. A fully stripped log never regrows!")
+                .defineInRange("barkRegrowChance", 25, 0, 100);
+
+        b.pop();
+
         Bonuses.defineConfig(b);
 
         SPEC = b.build();
@@ -344,6 +363,14 @@ public final class Cfg {
 
     public static int startingUpgradeSlots() {
         return value(STARTING_UPGRADE_SLOTS);
+    }
+
+    public static int paperPerStripChance() {
+        return value(PAPER_PER_STRIP_CHANCE);
+    }
+
+    public static int barkRegrowChance() {
+        return value(BARK_REGROW_CHANCE);
     }
 
     public static boolean strictTiers() {

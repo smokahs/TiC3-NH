@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tic3nh:block/stripped_paperbark_log_top",
+    "side": "tic3nh:block/stripped_paperbark_log"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "axis=x,strip=0": {
+      "model": "tic3nh:block/paperbark_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,strip=1": {
+      "model": "tic3nh:block/paperbark_log_strip_25_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,strip=2": {
+      "model": "tic3nh:block/paperbark_log_strip_50_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,strip=3": {
+      "model": "tic3nh:block/paperbark_log_strip_75_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,strip=0": {
+      "model": "tic3nh:block/paperbark_log"
+    },
+    "axis=y,strip=1": {
+      "model": "tic3nh:block/paperbark_log_strip_25"
+    },
+    "axis=y,strip=2": {
+      "model": "tic3nh:block/paperbark_log_strip_50"
+    },
+    "axis=y,strip=3": {
+      "model": "tic3nh:block/paperbark_log_strip_75"
+    },
+    "axis=z,strip=0": {
+      "model": "tic3nh:block/paperbark_log_horizontal",
+      "x": 90
+    },
+    "axis=z,strip=1": {
+      "model": "tic3nh:block/paperbark_log_strip_25_horizontal",
+      "x": 90
+    },
+    "axis=z,strip=2": {
+      "model": "tic3nh:block/paperbark_log_strip_50_horizontal",
+      "x": 90
+    },
+    "axis=z,strip=3": {
+      "model": "tic3nh:block/paperbark_log_strip_75_horizontal",
+      "x": 90
+    }
+  }
+}

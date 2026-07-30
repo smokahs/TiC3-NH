@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tic3nh:block/paperbark_slab"
+    },
+    "type=double": {
+      "model": "tic3nh:block/paperbark_planks"
+    },
+    "type=top": {
+      "model": "tic3nh:block/paperbark_slab_top"
+    }
+  }
+}

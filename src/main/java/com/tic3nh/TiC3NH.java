@@ -16,6 +16,7 @@ import com.tic3nh.config.Cfg;
 import com.tic3nh.mininglevel.GtTiers;
 import com.tic3nh.mininglevel.Penalty;
 import com.tic3nh.setup.reg;
+import com.tic3nh.tree.Paperbark;
 
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
@@ -42,6 +43,8 @@ public final class TiC3NH {
             GtTiers.register();
 
             BucketEvents.registerCauldrons();
+
+            Paperbark.registerFlowerPot();
 
             ToolModule.LOADER.register(
                     new ResourceLocation(MOD_ID, "unboosted_tier_penalty"),

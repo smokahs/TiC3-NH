@@ -51,5 +51,7 @@ public final class TierTags extends BlockTagsProvider {
         tag(GtTiers.MANYULLYN.blockTag()).add(
                 Blocks.REINFORCED_DEEPSLATE);
 
+        // a mod gets exactly one block tag provider, so the paperbark wood tags ride along here
+        PaperbarkTags.addTo(this::tag);
     }
 }

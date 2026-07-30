@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.4.0
+1. New **paperbark tree**, see readme
+2. New `[paperbark]` config section with `paperPerStripChance` (33) and `barkRegrowChance` (25)
+
 ## v2.3.1
 1. `newHorizonsMode` now writes its GTNH values straight into `tic3nh-common.toml` instead of layering them
 2. Wooden pickaxe, axe, shovel, sword and hoe are exempt from the nerf under New Horizons Mode, so a fresh world can still reach a Crafting Station

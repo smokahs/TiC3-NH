@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tic3nh:has_paperbark_rare",
+  "features": "tic3nh:paperbark_tree_rare",
+  "step": "vegetal_decoration"
+}

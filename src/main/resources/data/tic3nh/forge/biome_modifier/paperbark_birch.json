@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#tic3nh:has_paperbark_birch",
+  "features": "tic3nh:paperbark_tree_birch",
+  "step": "vegetal_decoration"
+}

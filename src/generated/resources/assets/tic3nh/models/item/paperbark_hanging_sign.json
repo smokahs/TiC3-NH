@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tic3nh:item/paperbark_hanging_sign"
+  }
+}

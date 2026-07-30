@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "tic3nh:paperbark_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "tic3nh:paperbark_planks"
+  }
+}

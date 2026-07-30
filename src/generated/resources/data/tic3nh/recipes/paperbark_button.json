@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "tic3nh:paperbark_planks"
+    }
+  ],
+  "result": {
+    "item": "tic3nh:paperbark_button"
+  }
+}

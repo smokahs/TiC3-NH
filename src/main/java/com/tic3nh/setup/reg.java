@@ -20,6 +20,7 @@ import com.tic3nh.mininglevel.SkullMod;
 import com.tic3nh.modifiers.CritMod;
 import com.tic3nh.modifiers.MossMod;
 import com.tic3nh.modifiers.RepairMod;
+import com.tic3nh.tree.Paperbark;
 
 public final class reg {
 
@@ -74,6 +75,7 @@ public final class reg {
             MODIFIERS.register("repair_tweaks", RepairMod::new);
 
     public static void init(IEventBus modBus) {
+        Paperbark.init(modBus);
         ITEMS.register(modBus);
         MODIFIERS.register(modBus);
     }
