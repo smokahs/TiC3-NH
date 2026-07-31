@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+
+## v2.4.2
+1. Paperbark trees no longer generate in water
+2. 
+
+## v2.4.1
 1. Fixed `newHorizonsMode` wiping your own entries out of the `excluded*` lists on every load
 
 ## v2.4.0
