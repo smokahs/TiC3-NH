@@ -1,5 +1,6 @@
 package com.tic3nh.setup;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluids;
 
@@ -10,6 +11,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
+import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
+import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 
 import com.tic3nh.TiC3NH;
 import com.tic3nh.buckets.ClayBucket;
@@ -52,6 +55,19 @@ public final class reg {
 
     public static final RegistryObject<Item> MILK_CLAY_BUCKET =
             ITEMS.register("milk_clay_bucket", () -> new MilkBucket(new Item.Properties().stacksTo(1)));
+
+    // GTNH-era tools TiC3 dropped: 2-part (head + handle), no binding
+    public static final ToolDefinition SHOVEL_DEF =
+            ToolDefinition.create(new ResourceLocation(TiC3NH.MOD_ID, "shovel"));
+
+    public static final ToolDefinition HATCHET_DEF =
+            ToolDefinition.create(new ResourceLocation(TiC3NH.MOD_ID, "hatchet"));
+
+    public static final RegistryObject<Item> SHOVEL =
+            ITEMS.register("shovel", () -> new ModifiableItem(new Item.Properties().stacksTo(1), SHOVEL_DEF));
+
+    public static final RegistryObject<Item> HATCHET =
+            ITEMS.register("hatchet", () -> new ModifiableItem(new Item.Properties().stacksTo(1), HATCHET_DEF));
 
     public static final ModifierDeferredRegister MODIFIERS =
             ModifierDeferredRegister.create(TiC3NH.MOD_ID);

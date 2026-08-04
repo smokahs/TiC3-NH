@@ -1,0 +1,16 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/axe",
+  "textures": {
+    "head": "tic3nh:item/tool/hatchet/head_broken",
+    "handle": "tic3nh:item/tool/hatchet/handle"
+  },
+  "modifier_roots": [
+    "tconstruct:item/tool/hand_axe/modifiers/broken/",
+    "tconstruct:item/tool/hand_axe/modifiers/"
+  ],
+  "parts": [
+    { "name": "handle", "index": 1 },
+    { "name": "head", "index": 0 }
+  ]
+}

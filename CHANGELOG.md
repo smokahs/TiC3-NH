@@ -1,10 +1,12 @@
 # Changelog
 
-## Unreleased
+## v2.5.0
+1. **Shovel and Hatchet are back**
+    - Both are true 2-part tools like in 1.7.10: head + tool handle, no binding
 
 ## v2.4.2
 1. Paperbark trees no longer generate in water
-2. 
+2. Made much more rare
 
 ## v2.4.1
 1. Fixed `newHorizonsMode` wiping your own entries out of the `excluded*` lists on every load

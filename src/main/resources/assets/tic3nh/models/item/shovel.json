@@ -1,0 +1,23 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/axe",
+  "textures": {
+    "head": "tic3nh:item/tool/shovel/head",
+    "handle": "tic3nh:item/tool/shovel/handle"
+  },
+  "modifier_roots": [ "tconstruct:item/tool/pickadze/modifiers/" ],
+  "parts": [
+    { "name": "handle", "index": 1 },
+    { "name": "head", "index": 0 }
+  ],
+  "overrides": [
+    {
+      "predicate": { "tconstruct:charging": 2 },
+      "model": "tic3nh:item/tool/shovel/blocking"
+    },
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "tic3nh:item/tool/shovel/broken"
+    }
+  ]
+}
