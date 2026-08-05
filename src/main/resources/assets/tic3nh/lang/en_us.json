@@ -32,6 +32,7 @@
   "config.jade.plugin_tic3nh.mining_level.effective_tool": "Show Effective Tool",
   "config.jade.plugin_tic3nh.mining_level.harvestable": "Show Harvestable",
   "config.jade.plugin_tic3nh.mining_level.level": "Show Mining Level",
+  "tic3nh.tooltip.part.replaceable": "Parts can be replaced",
   "tic3nh.tooltip.mining_xp": "Mining XP: %s",
   "tic3nh.tooltip.boosted": "Boosted",
   "tic3nh.message.boosted": "Mining level boosted!",

@@ -16,8 +16,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.materials.definition.IMaterial;
 import slimeknights.tconstruct.library.tools.definition.module.mining.MiningTierToolHook;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.tools.part.IToolPart;
 
 import com.tic3nh.TiC3NH;
 import com.tic3nh.leveling.LvlTip;
@@ -74,6 +76,19 @@ public final class HudTip {
         int index = 1;
         for (Component line : lines) {
             tooltip.add(index++, line);
+        }
+    }
+
+    // iguana tweaks put a gold reminder on every tool part that it can be swapped into a built tool
+    @SubscribeEvent
+    public static void onPartTooltip(ItemTooltipEvent event) {
+        ItemStack stack = event.getItemStack();
+        if (stack.getItem() instanceof IToolPart part
+                && !part.getMaterial(stack).equals(IMaterial.UNKNOWN_ID)) {
+            List<Component> tooltip = event.getToolTip();
+            tooltip.add(Component.empty());
+            tooltip.add(Component.translatable("tic3nh.tooltip.part.replaceable")
+                    .withStyle(ChatFormatting.GOLD));
         }
     }
 
