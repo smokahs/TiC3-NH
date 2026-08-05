@@ -27,6 +27,22 @@ Tools start one tier below their intended harvest level, encouraging the player 
 
 The GTNH modifier lineup ported onto TiC3. (Most notably lapis = luck again! )
 
+### - The Shovel
+
+The classic Tinkers shovel is back. Built at the Tinker Station from a **Shovel Head** (new part, with its own pattern and gold/sand casts), a tool handle and a tool binding. It digs, it makes dirt paths, and it levels, boosts and takes modifiers like every other tool.
+
+### - New Horizons Mode
+
+One switch that flips the whole config to the GregTech New Horizons values instead of this mod's own, including the vanilla tool nerf: non-Tinkers tools mine nothing, so the pack starts with flint and patterns like the good old days.
+
+```toml
+newHorizonsMode = true
+```
+
+### - Clay Buckets
+
+Smelt an unfired clay bucket and you have early liquid transport: water, lava and milk. The lava bucket is destroyed when emptied, exactly as painful as you remember.
+
 ### - Jade Compat
 
 With Jade installed, sneak while looking at a block to see its effective tool, whether your held tool can harvest it, and the required mining level. 
