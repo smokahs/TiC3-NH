@@ -1,0 +1,11 @@
+{
+  "type": "tconstruct:molding_table",
+  "material": {
+    "tag": "tconstruct:casts/sand"
+  },
+  "pattern": {
+    "type": "tconstruct:material",
+    "item": "tic3nh:shovel_head"
+  },
+  "result": "tic3nh:shovel_head_sand_cast"
+}

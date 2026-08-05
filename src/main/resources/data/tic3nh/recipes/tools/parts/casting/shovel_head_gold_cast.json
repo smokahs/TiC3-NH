@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tic3nh:casts/multi_use/shovel_head"
+  },
+  "item_cost": 2,
+  "result": "tic3nh:shovel_head"
+}

@@ -14,14 +14,22 @@ import com.tic3nh.TiC3NH;
 public final class ToolTab {
 
     private static final ResourceLocation TCONSTRUCT_TOOLS = new ResourceLocation("tconstruct", "tools");
+    private static final ResourceLocation TCONSTRUCT_TOOL_PARTS = new ResourceLocation("tconstruct", "tool_parts");
+    private static final ResourceLocation TCONSTRUCT_SMELTERY = new ResourceLocation("tconstruct", "smeltery");
 
     private ToolTab() {}
 
     @SubscribeEvent
     public static void addToTabs(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey().location().equals(TCONSTRUCT_TOOLS)) {
+        ResourceLocation tab = event.getTabKey().location();
+        if (tab.equals(TCONSTRUCT_TOOLS)) {
             event.accept(((IModifiableDisplay) reg.SHOVEL.get()).getRenderTool());
-            event.accept(((IModifiableDisplay) reg.HATCHET.get()).getRenderTool());
+        } else if (tab.equals(TCONSTRUCT_TOOL_PARTS)) {
+            reg.SHOVEL_HEAD.get().addVariants(event::accept, "");
+        } else if (tab.equals(TCONSTRUCT_SMELTERY)) {
+            event.accept(reg.SHOVEL_HEAD_CAST);
+            event.accept(reg.SHOVEL_HEAD_SAND_CAST);
+            event.accept(reg.SHOVEL_HEAD_RED_SAND_CAST);
         }
     }
 }

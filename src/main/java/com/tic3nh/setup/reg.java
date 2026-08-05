@@ -13,6 +13,8 @@ import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import com.tic3nh.TiC3NH;
 import com.tic3nh.buckets.ClayBucket;
@@ -56,18 +58,23 @@ public final class reg {
     public static final RegistryObject<Item> MILK_CLAY_BUCKET =
             ITEMS.register("milk_clay_bucket", () -> new MilkBucket(new Item.Properties().stacksTo(1)));
 
-    // GTNH-era tools TiC3 dropped: 2-part (head + handle), no binding
     public static final ToolDefinition SHOVEL_DEF =
             ToolDefinition.create(new ResourceLocation(TiC3NH.MOD_ID, "shovel"));
-
-    public static final ToolDefinition HATCHET_DEF =
-            ToolDefinition.create(new ResourceLocation(TiC3NH.MOD_ID, "hatchet"));
 
     public static final RegistryObject<Item> SHOVEL =
             ITEMS.register("shovel", () -> new ModifiableItem(new Item.Properties().stacksTo(1), SHOVEL_DEF));
 
-    public static final RegistryObject<Item> HATCHET =
-            ITEMS.register("hatchet", () -> new ModifiableItem(new Item.Properties().stacksTo(1), HATCHET_DEF));
+    public static final RegistryObject<ToolPartItem> SHOVEL_HEAD =
+            ITEMS.register("shovel_head", () -> new ToolPartItem(new Item.Properties(), HeadMaterialStats.ID));
+
+    public static final RegistryObject<Item> SHOVEL_HEAD_CAST =
+            ITEMS.register("shovel_head_cast", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SHOVEL_HEAD_SAND_CAST =
+            ITEMS.register("shovel_head_sand_cast", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SHOVEL_HEAD_RED_SAND_CAST =
+            ITEMS.register("shovel_head_red_sand_cast", () -> new Item(new Item.Properties()));
 
     public static final ModifierDeferredRegister MODIFIERS =
             ModifierDeferredRegister.create(TiC3NH.MOD_ID);

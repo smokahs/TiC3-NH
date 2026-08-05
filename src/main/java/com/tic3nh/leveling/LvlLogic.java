@@ -181,7 +181,7 @@ public final class LvlLogic {
         if (p.contains("mattock") || p.contains("shovel") || p.contains("pickadze")) {
             return 1.2f;
         }
-        if (p.contains("hand_axe") || p.contains("hatchet") || p.contains("kama")) {
+        if (p.contains("hand_axe") || p.contains("kama")) {
             return 0.66f;
         }
         return 1.0f;

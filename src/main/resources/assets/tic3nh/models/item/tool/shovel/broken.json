@@ -3,7 +3,8 @@
   "parent": "tconstruct:item/base/axe",
   "textures": {
     "head": "tic3nh:item/tool/shovel/head_broken",
-    "handle": "tic3nh:item/tool/shovel/handle"
+    "handle": "tic3nh:item/tool/shovel/handle",
+    "binding": "tic3nh:item/tool/shovel/binding"
   },
   "modifier_roots": [
     "tconstruct:item/tool/pickadze/modifiers/broken/",
@@ -11,6 +12,7 @@
   ],
   "parts": [
     { "name": "handle", "index": 1 },
-    { "name": "head", "index": 0 }
+    { "name": "head", "index": 0 },
+    { "name": "binding", "index": 2 }
   ]
 }

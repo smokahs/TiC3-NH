@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tic3nh:item/red_sand_cast/shovel_head"
+  }
+}

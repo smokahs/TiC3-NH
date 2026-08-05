@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 2,
+  "pattern": "tic3nh:shovel_head",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tic3nh:shovel_head_cast"
+    }
+  ],
+  "result": {
+    "item": "tic3nh:shovel_head"
+  }
+}

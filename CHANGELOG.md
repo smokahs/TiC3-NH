@@ -1,8 +1,10 @@
 # Changelog
 
+
 ## v2.5.0
-1. **Shovel and Hatchet are back**
-    - Both are true 2-part tools like in 1.7.10: head + tool handle, no binding
+1. **Shovel reworked into a proper 3-part tool**: shovel head + tool handle + tool binding
+    - New **Shovel Head** part with its own part builder pattern, so it's craftable like any other head (2 material cost)
+    - Full casting support: gold cast, sand and red sand casts, smeltery part casting and composite casting
 
 ## v2.4.2
 1. Paperbark trees no longer generate in water
