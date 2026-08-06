@@ -46,9 +46,7 @@ public class BoostMod extends NoLevelsModifier
         if (data.getBoolean(MineKeys.BOOSTED)) {
             return;
         }
-
-        Tier tier = tool.getStats().get(ToolStats.HARVEST_TIER);
-        if (GtTiers.TIERS.indexOf(GtTiers.displayFor(tier)) <= 0) {
+        if (!boostable(tool)) {
             return;
         }
         int required = requiredBoostXp(tool);
@@ -67,6 +65,12 @@ public class BoostMod extends NoLevelsModifier
 
     public static int requiredBoostXp(IToolStackView tool) {
         return LvlLogic.requiredBoostXp(tool);
+    }
+
+    // the boost only removes the one-tier penalty, so a tool already at the stone floor has nothing to earn
+    public static boolean boostable(IToolStackView tool) {
+        Tier tier = tool.getStats().get(ToolStats.HARVEST_TIER);
+        return GtTiers.TIERS.indexOf(GtTiers.displayFor(tier)) > 0;
     }
 
     @Override

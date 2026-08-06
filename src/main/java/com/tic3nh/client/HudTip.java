@@ -23,6 +23,7 @@ import slimeknights.tconstruct.library.tools.part.IToolPart;
 
 import com.tic3nh.TiC3NH;
 import com.tic3nh.leveling.LvlTip;
+import com.tic3nh.mininglevel.BoostMod;
 import com.tic3nh.mininglevel.MineTips;
 import com.tic3nh.setup.reg;
 
@@ -57,7 +58,7 @@ public final class HudTip {
         if (mining) {
             Tier tier = MiningTierToolHook.getTier(tool);
             lines.add(MineTips.miningLevel(tier, null));
-            if (shift) {
+            if (shift && BoostMod.boostable(tool)) {
                 lines.add(MineTips.miningXp(tool));
             }
         }

@@ -1,6 +1,10 @@
 # Changelog
 
 
+## v2.5.1
+1. Flint's real mining level is now Copper: a fresh flint pick mines at Stone until the boost is earned, so it can be leveled up to mine iron like in GTNH
+2. The shift tooltip no longer shows a dead *Mining XP* line on tools that can't be boosted (stone-tier heads)
+
 ## v2.5.0
 1. **Shovel reworked into a proper 3-part tool**: shovel head + tool handle + tool binding
     - New **Shovel Head** part with its own part builder pattern, so it's craftable like any other head (2 material cost)
