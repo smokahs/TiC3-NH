@@ -2,7 +2,7 @@
 
 
 ## v2.5.1
-1. Flint's real mining level is now Copper: a fresh flint pick mines at Stone until the boost is earned, so it can be leveled up to mine iron like in GTNH
+1. Flint tools now copper tier (still need mining boost)
 2. The shift tooltip no longer shows a dead *Mining XP* line on tools that can't be boosted (stone-tier heads)
 
 ## v2.5.0
