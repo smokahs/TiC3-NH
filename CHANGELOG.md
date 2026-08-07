@@ -1,5 +1,7 @@
 # Changelog
 
+## v2.5.2 
+1. Fixed mining levels to match gtnh on certain tiers
 
 ## v2.5.1
 1. Flint tools now copper tier (still need mining boost)

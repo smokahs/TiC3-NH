@@ -19,11 +19,13 @@ public final class TierMap {
     private static final int[] CUTS = { 512, 1280 };
 
     private static final Map<String, String> OVERRIDES = Map.of(
-            "tin",       "tin",
-            "darconite", "darconite",
-            "monium",    "monium",
-            "trinium",   "cobalt",
-            "naquadah",  "cobalt"
+            "tin",            "tin",
+            "darconite",      "darconite",
+            "monium",         "monium",
+            "trinium",        "cobalt",
+            "naquadah",       "cobalt",
+            "titanium",       "obsidian",
+            "vanadium_steel", "obsidian"
     );
 
     public static String tierId(String materialName, int harvestLevel, int durability) {
