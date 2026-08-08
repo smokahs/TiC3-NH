@@ -1,3 +1,20 @@
 {
-  "values": []
+  "values": [
+    {
+      "id": "#forge:storage_blocks/monium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/omnium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/infinity",
+      "required": false
+    },
+    {
+      "id": "gtceu:fusion_casing_mk3",
+      "required": false
+    }
+  ]
 }

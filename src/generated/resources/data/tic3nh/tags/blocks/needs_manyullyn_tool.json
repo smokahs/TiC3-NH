@@ -1,5 +1,53 @@
 {
   "values": [
+    {
+      "id": "#forge:ores/calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/manyullyn",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/hepatizon",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/queens_slime",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/soulsteel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/cinderslime",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/naquadah_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/naquadah_enriched",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/hsse",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/hss_e",
+      "required": false
+    },
     "minecraft:reinforced_deepslate"
   ]
 }

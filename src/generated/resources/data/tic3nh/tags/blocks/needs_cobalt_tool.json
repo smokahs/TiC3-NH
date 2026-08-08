@@ -1,5 +1,68 @@
 {
   "values": [
-    "minecraft:netherite_block"
+    {
+      "id": "#forge:ores/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/cobaltite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/iridium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/cooperite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/naquadah",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/titanium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/ostrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_cobalt",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/iridium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ostrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_ostrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/duranium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/tritanium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/knightmetal",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/fiery",
+      "required": false
+    }
   ]
 }

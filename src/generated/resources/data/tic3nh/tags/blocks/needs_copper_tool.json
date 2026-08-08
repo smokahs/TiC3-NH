@@ -1,10 +1,187 @@
 {
   "values": [
-    "minecraft:iron_ore",
-    "minecraft:deepslate_iron_ore",
+    {
+      "id": "#forge:ores/coal",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lignite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/copper",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/tetrahedrite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/chalcopyrite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/malachite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/bornite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/chalcocite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/bauxite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/apatite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sulfur",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/saltpeter",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/niter",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/salt",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/rock_salt",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/graphite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/oilsands",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/mica",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/talc",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/soapstone",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/calcite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/gypsum",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/realgar",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/asbestos",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/diatomite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/trona",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/electrotine",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/basaltic_mineral_sand",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/granitic_mineral_sand",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/garnet_sand",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/glauconite_sand",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/fullers_earth",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/bentonite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/coal",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/copper",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_copper",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_zinc",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/aluminum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/aluminium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/brass",
+      "required": false
+    },
+    "minecraft:coal_ore",
+    "minecraft:deepslate_coal_ore",
+    "minecraft:coal_block",
     "minecraft:copper_ore",
     "minecraft:deepslate_copper_ore",
-    "minecraft:lapis_ore",
-    "minecraft:deepslate_lapis_ore"
+    "minecraft:copper_block",
+    "minecraft:raw_copper_block"
   ]
 }

@@ -1,3 +1,32 @@
 {
-  "values": []
+  "values": [
+    {
+      "id": "#forge:storage_blocks/darconite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/darmstadtium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/bedrockium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/neutronium",
+      "required": false
+    },
+    {
+      "id": "gtceu:fusion_casing_mk2",
+      "required": false
+    },
+    {
+      "id": "gtceu:fusion_coil",
+      "required": false
+    },
+    {
+      "id": "gtceu:superconducting_coil",
+      "required": false
+    }
+  ]
 }

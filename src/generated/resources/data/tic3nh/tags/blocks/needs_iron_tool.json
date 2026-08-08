@@ -1,14 +1,172 @@
 {
   "values": [
-    "minecraft:gold_ore",
-    "minecraft:deepslate_gold_ore",
-    "minecraft:nether_gold_ore",
-    "minecraft:redstone_ore",
-    "minecraft:deepslate_redstone_ore",
-    "minecraft:diamond_ore",
-    "minecraft:deepslate_diamond_ore",
-    "minecraft:emerald_ore",
-    "minecraft:deepslate_emerald_ore",
-    "minecraft:nether_quartz_ore"
+    {
+      "id": "#forge:ores/iron",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pyrite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/magnetite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/hematite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/goethite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/yellow_limonite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/brown_limonite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/banded_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/vanadium_magnetite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lapis",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lazurite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/molybdenite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/molybdenum",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/neodymium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/bastnasite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/monazite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/beryllium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lithium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/barite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/alunite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/kyanite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lepidolite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/magnesite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pollucite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/powellite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/spodumene",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/stibnite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/zeolite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/tricalcium_phosphate",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/almandine",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/grossular",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pyrope",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/spessartine",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/iron",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_iron",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/silver",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_silver",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/lapis",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/wrought_iron",
+      "required": false
+    },
+    "minecraft:iron_ore",
+    "minecraft:deepslate_iron_ore",
+    "minecraft:iron_block",
+    "minecraft:raw_iron_block",
+    "minecraft:iron_bars",
+    "minecraft:lapis_ore",
+    "minecraft:deepslate_lapis_ore",
+    "minecraft:lapis_block"
   ]
 }

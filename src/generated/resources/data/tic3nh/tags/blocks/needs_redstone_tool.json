@@ -1,3 +1,126 @@
 {
-  "values": []
+  "values": [
+    {
+      "id": "#forge:ores/diamond",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/emerald",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/ruby",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sapphire",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/green_sapphire",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/amethyst",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/cinnabar",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pyrolusite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/manganese",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/red_garnet",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/yellow_garnet",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/opal",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/topaz",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/blue_topaz",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/tantalite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/thorium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/diamond",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/emerald",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ruby",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/sapphire",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/titanium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/stainless_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/damascus_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/vanadium_steel",
+      "required": false
+    },
+    "minecraft:diamond_ore",
+    "minecraft:deepslate_diamond_ore",
+    "minecraft:diamond_block",
+    "minecraft:emerald_ore",
+    "minecraft:deepslate_emerald_ore",
+    "minecraft:emerald_block",
+    {
+      "id": "gtceu:red_granite",
+      "required": false
+    },
+    {
+      "id": "gtceu:red_granite_cobblestone",
+      "required": false
+    },
+    {
+      "id": "gtceu:polished_red_granite",
+      "required": false
+    },
+    {
+      "id": "gtceu:red_granite_bricks",
+      "required": false
+    },
+    {
+      "id": "gtceu:reinforced_stone",
+      "required": false
+    }
+  ]
 }

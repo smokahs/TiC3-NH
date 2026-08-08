@@ -1,8 +1,104 @@
 {
   "values": [
+    {
+      "id": "#forge:ores/quartz",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/nether_quartz",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/certus_quartz",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/quartzite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sodalite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/tungstate",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/scheelite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/tungsten",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/quartz",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/certus_quartz",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/tungsten",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/tungsten_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ultimet",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/blue_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/red_steel",
+      "required": false
+    },
     "minecraft:obsidian",
     "minecraft:crying_obsidian",
+    "minecraft:enchanting_table",
+    "minecraft:nether_quartz_ore",
+    "minecraft:quartz_block",
     "minecraft:ancient_debris",
-    "minecraft:respawn_anchor"
+    "minecraft:netherite_block",
+    "minecraft:respawn_anchor",
+    {
+      "id": "ae2:quartz_ore",
+      "required": false
+    },
+    {
+      "id": "ae2:deepslate_quartz_ore",
+      "required": false
+    },
+    {
+      "id": "ae2:sky_stone_block",
+      "required": false
+    },
+    {
+      "id": "ae2:smooth_sky_stone_block",
+      "required": false
+    },
+    {
+      "id": "ae2:sky_stone_brick",
+      "required": false
+    },
+    {
+      "id": "ae2:sky_stone_small_brick",
+      "required": false
+    },
+    {
+      "id": "ae2:sky_stone_chest",
+      "required": false
+    },
+    {
+      "id": "ae2:smooth_sky_stone_chest",
+      "required": false
+    }
   ]
 }

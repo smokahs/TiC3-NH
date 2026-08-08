@@ -1,3 +1,141 @@
 {
-  "values": []
+  "values": [
+    {
+      "id": "#forge:ores/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/cassiterite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/cassiterite_sand",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/gold",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/galena",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/nickel",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/garnierite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pentlandite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sphalerite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/electrum",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/osmium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/redstone",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/ilmenite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/rutile",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/chromite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/chrome",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/gold",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_gold",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/redstone",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/tin",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_tin",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/lead",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_lead",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/nickel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_nickel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/invar",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/electrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/constantan",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/bronze",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/osmium",
+      "required": false
+    },
+    "minecraft:gold_ore",
+    "minecraft:deepslate_gold_ore",
+    "minecraft:nether_gold_ore",
+    "minecraft:gilded_blackstone",
+    "minecraft:gold_block",
+    "minecraft:raw_gold_block",
+    "minecraft:redstone_ore",
+    "minecraft:deepslate_redstone_ore",
+    "minecraft:redstone_block"
+  ]
 }

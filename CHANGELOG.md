@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.6.0
+1. **Fixed mining block requirements**
+    - **Iron**: iron, lapis, silver, pyrite, magnetite and their blocks
+    - **Tin**: gold, redstone, tin, cassiterite, lead, galena, nickel, sphalerite, electrum, invar, steel, osmium, nether gold, gilded blackstone 
+    - **Redstone**: diamond, emerald, ruby, sapphire, amethyst, cinnabar, manganese, GT red granite, reinforced stone
+    - **Obsidian**: obsidian, enchanting table, nether quartz, certus quartz, sky stone, tungsten, ancient debris, netherite block
+    - **Ardite**: uranium, platinum group, olivine, Ad Astra desh
+    - **Cobalt**: cobalt, iridium, cooperite, titanium, Ad Astra ostrum
+    - **Manyullyn**: manyullyn/hepatizon/queen's slime/soulsteel blocks, Ad Astra calorite
+    - **Darconite / Monium**: fusion casings, superconducting coils, neutronium and above
+2. Tiers reference `forge:ores/*` and `forge:storage_blocks/*` rather than block ids, so GregTech, Thermal, Ad Astra, Create and Tinkers' ores are all covered without a dependency
+
 ## v2.5.2 
 1. Fixed mining levels to match gtnh on certain tiers
 

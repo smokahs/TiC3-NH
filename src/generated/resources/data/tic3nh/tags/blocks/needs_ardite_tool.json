@@ -1,3 +1,80 @@
 {
-  "values": []
+  "values": [
+    {
+      "id": "#forge:ores/uranium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/uraninite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/pitchblende",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/plutonium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/olivine",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/platinum",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/palladium",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sheldonite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/uranium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/plutonium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/platinum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/palladium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/naquadah",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/osmiridium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/tungsten_carbide",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/adamantium",
+      "required": false
+    }
+  ]
 }
