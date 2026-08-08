@@ -171,8 +171,8 @@ public final class Cfg {
         b.comment("Mining tier gating.").push("tiers");
 
         STRICT_TIERS = preset(b.comment(
-                "Pull vanilla ores back out of the vanilla harvest tags so the custom tiers gate them.",
-                "Iron ore then needs Copper, diamond ore needs Iron, obsidian needs Obsidian.")
+                "Pull vanilla ores and metal blocks out of the vanilla harvest tags so the custom tiers",
+                "gate them. Iron ore then needs Iron, gold and redstone need Tin, diamond needs Redstone.")
                 .define("strictTiers", false), true);
 
         b.pop();
@@ -381,6 +381,7 @@ public final class Cfg {
     public static boolean gtnhStations() {
         return value(GTNH_STATIONS);
     }
+
 
     public static int xpRequiredToolsPercentage() {
         return value(XP_REQUIRED_TOOLS_PERCENTAGE);

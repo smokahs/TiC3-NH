@@ -8,6 +8,7 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.mantle.data.loadable.record.SingletonLoader;
+import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.module.HookProvider;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
@@ -41,8 +42,13 @@ public final class Penalty implements MiningTierToolHook, ToolModule {
         return DEFAULT_HOOKS;
     }
 
+    private static final ModifierId DIAMOND = new ModifierId("tconstruct", "diamond");
+    private static final ModifierId EMERALD = new ModifierId("tconstruct", "emerald");
+
     @Override
     public Tier modifyTier(IToolStackView tool, Tier tier) {
+        tier = gemBonus(tool, tier);
+
         if (Cfg.loaded() && !Cfg.PICKAXE_BOOST_REQUIRED.get()) {
             return tier;
         }
@@ -64,5 +70,21 @@ public final class Penalty implements MiningTierToolHook, ToolModule {
             return tier;
         }
         return sorted.get(index - 1);
+    }
+
+    // gtnh ModBonusMiningLevel: each gem adds a tier instead of tinkers' jump to vanilla diamond.
+    // diamond caps at obsidian, emerald a tier lower, and the unboosted penalty still applies after.
+    private static Tier gemBonus(IToolStackView tool, Tier tier) {
+        boolean diamond = tool.getModifierLevel(DIAMOND) > 0;
+        boolean emerald = tool.getModifierLevel(EMERALD) > 0;
+        if (!diamond && !emerald) {
+            return tier;
+        }
+        int gems = (diamond ? 1 : 0) + (emerald ? 1 : 0);
+        int cap = GtTiers.TIERS.indexOf(diamond ? GtTiers.OBSIDIAN : GtTiers.REDSTONE);
+
+        int index = GtTiers.TIERS.indexOf(GtTiers.displayFor(tier));
+        int boosted = Math.min(index + gems, cap);
+        return boosted > index ? GtTiers.TIERS.get(boosted).tier() : tier;
     }
 }

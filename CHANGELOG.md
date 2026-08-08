@@ -11,6 +11,7 @@
     - **Manyullyn**: manyullyn/hepatizon/queen's slime/soulsteel blocks, Ad Astra calorite
     - **Darconite / Monium**: fusion casings, superconducting coils, neutronium and above
 2. Tiers reference `forge:ores/*` and `forge:storage_blocks/*` rather than block ids, so GregTech, Thermal, Ad Astra, Create and Tinkers' ores are all covered without a dependency
+3. **Diamond and Emerald modifiers now work like GTNH's**: each adds one mining tier instead of setting the tier to diamond, Diamond capped at Obsidian, Emerald capped at Redstone.
 
 ## v2.5.2 
 1. Fixed mining levels to match gtnh on certain tiers
