@@ -5,15 +5,17 @@ import java.util.Map;
 public final class TierMap {
 
     private TierMap() {}
+    // gtceu harvest level -> our tier, on gtnh's ladder: a material's tool sits one tier above the
+    // ore of the same name, so gtceu 2 (iron, bronze) lands on tin/redstone, not iron.
     private static final String[][] BANDS = {
             { "stone" },
             { "copper" },
-            { "iron", "tin", "redstone" },
-            { "obsidian", "ardite" },
+            { "tin", "redstone" },
+            { "obsidian" },
+            { "ardite" },
             { "cobalt" },
             { "manyullyn" },
             { "darconite" },
-            { "monium" },
     };
 
     private static final int[] CUTS = { 512, 1280 };
@@ -22,8 +24,8 @@ public final class TierMap {
             "tin",            "tin",
             "darconite",      "darconite",
             "monium",         "monium",
-            "trinium",        "cobalt",
-            "naquadah",       "cobalt",
+            "trinium",        "monium",
+            "naquadah",       "ardite",
             "titanium",       "obsidian",
             "vanadium_steel", "obsidian"
     );

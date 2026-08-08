@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "tag": "forge:nuggets/ardite"
+  },
+  "material": "tic3nh:ardite",
+  "needed": 3,
+  "value": 1
+}

@@ -21,11 +21,23 @@
       "required": false
     },
     {
+      "id": "#forge:ores/snowchestite",
+      "required": false
+    },
+    {
       "id": "#forge:ores/titanium",
       "required": false
     },
     {
       "id": "#forge:ores/ostrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ardite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/raw_ardite",
       "required": false
     },
     {
@@ -61,7 +73,11 @@
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/fiery",
+      "id": "twilightforest:fiery_block",
+      "required": false
+    },
+    {
+      "id": "twilightforest:knightmetal_block",
       "required": false
     }
   ]

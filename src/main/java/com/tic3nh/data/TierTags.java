@@ -44,7 +44,7 @@ public final class TierTags extends BlockTagsProvider {
                 "saltpeter", "niter", "salt", "rock_salt", "graphite", "oilsands", "mica", "talc",
                 "soapstone", "calcite", "gypsum", "realgar", "asbestos", "diatomite", "trona",
                 "electrotine", "basaltic_mineral_sand", "granitic_mineral_sand", "garnet_sand",
-                "glauconite_sand", "fullers_earth", "bentonite");
+                "glauconite_sand", "fullers_earth", "bentonite", "azurite", "zincite", "borax");
         storage(GtTiers.COPPER,
                 "coal", "copper", "raw_copper", "zinc", "raw_zinc", "aluminum", "aluminium", "brass");
         blocks(GtTiers.COPPER,
@@ -59,7 +59,8 @@ public final class TierTags extends BlockTagsProvider {
                 "molybdenite", "molybdenum", "neodymium", "bastnasite", "monazite", "beryllium",
                 "lithium", "barite", "alunite", "kyanite", "lepidolite", "magnesite", "pollucite",
                 "powellite", "spodumene", "stibnite", "zeolite", "tricalcium_phosphate",
-                "almandine", "grossular", "pyrope", "spessartine");
+                "almandine", "grossular", "pyrope", "spessartine", "argentite", "arsenopyrite",
+                "fluorite", "gallite", "briartite", "xenotime");
         storage(GtTiers.IRON, "iron", "raw_iron", "silver", "raw_silver", "lapis", "wrought_iron");
         blocks(GtTiers.IRON,
                 Blocks.IRON_ORE, Blocks.DEEPSLATE_IRON_ORE, Blocks.IRON_BLOCK,
@@ -70,7 +71,7 @@ public final class TierTags extends BlockTagsProvider {
         ores(GtTiers.TIN,
                 "tin", "cassiterite", "cassiterite_sand", "gold", "lead", "galena", "nickel",
                 "garnierite", "pentlandite", "sphalerite", "electrum", "osmium", "redstone",
-                "ilmenite", "rutile", "chromite", "chrome");
+                "ilmenite", "rutile", "chromite", "chrome", "titanite", "wulfenite");
         storage(GtTiers.TIN,
                 "gold", "raw_gold", "redstone", "tin", "raw_tin", "lead", "raw_lead", "nickel",
                 "raw_nickel", "invar", "electrum", "steel", "constantan", "bronze", "osmium");
@@ -83,7 +84,7 @@ public final class TierTags extends BlockTagsProvider {
         ores(GtTiers.REDSTONE,
                 "diamond", "emerald", "ruby", "sapphire", "green_sapphire", "amethyst", "cinnabar",
                 "pyrolusite", "manganese", "red_garnet", "yellow_garnet", "opal", "topaz",
-                "blue_topaz", "tantalite", "thorium");
+                "blue_topaz", "tantalite", "thorium", "columbite");
         storage(GtTiers.REDSTONE,
                 "diamond", "emerald", "ruby", "sapphire", "titanium", "stainless_steel",
                 "damascus_steel", "vanadium_steel");
@@ -97,7 +98,7 @@ public final class TierTags extends BlockTagsProvider {
         // 5 obsidian
         ores(GtTiers.OBSIDIAN,
                 "quartz", "nether_quartz", "certus_quartz", "quartzite", "sodalite", "tungstate",
-                "scheelite", "tungsten");
+                "scheelite", "tungsten", "wolframite", "stolzite");
         storage(GtTiers.OBSIDIAN,
                 "quartz", "certus_quartz", "tungsten", "tungsten_steel", "ultimet", "blue_steel",
                 "red_steel");
@@ -105,25 +106,34 @@ public final class TierTags extends BlockTagsProvider {
                 Blocks.OBSIDIAN, Blocks.CRYING_OBSIDIAN, Blocks.ENCHANTING_TABLE,
                 Blocks.NETHER_QUARTZ_ORE, Blocks.QUARTZ_BLOCK,
                 Blocks.ANCIENT_DEBRIS, Blocks.NETHERITE_BLOCK, Blocks.RESPAWN_ANCHOR);
+        // gtnh had ae2 certus ore, sky stone and sky chests all at obsidian. 1.20.1 ae2 dropped the
+        // ore, budding quartz is the source now
         ids(GtTiers.OBSIDIAN,
-                "ae2:quartz_ore", "ae2:deepslate_quartz_ore", "ae2:sky_stone_block",
-                "ae2:smooth_sky_stone_block", "ae2:sky_stone_brick", "ae2:sky_stone_small_brick",
-                "ae2:sky_stone_chest", "ae2:smooth_sky_stone_chest");
+                "ae2:flawless_budding_quartz", "ae2:flawed_budding_quartz",
+                "ae2:chipped_budding_quartz", "ae2:damaged_budding_quartz",
+                "ae2:sky_stone_block", "ae2:smooth_sky_stone_block", "ae2:sky_stone_brick",
+                "ae2:sky_stone_small_brick", "ae2:sky_stone_chest", "ae2:smooth_sky_stone_chest",
+                "twilightforest:deadrock", "twilightforest:cracked_deadrock",
+                "twilightforest:weathered_deadrock", "twilightforest:aurora_block");
+        tags(GtTiers.OBSIDIAN, "twilightforest:mazestone", "twilightforest:castle_blocks");
 
-        // 6 ardite
+        // 6 ardite: uranium, the platinum group and the moon
         ores(GtTiers.ARDITE,
-                "uranium", "uraninite", "pitchblende", "plutonium", "olivine", "platinum",
-                "palladium", "sheldonite", "desh");
+                "uranium", "uraninite", "pitchblende", "plutonium", "carnotite", "olivine",
+                "platinum", "palladium", "sheldonite", "cuprorhodsite", "sperrylite", "laurite", "ardite",
+                "iridosmine", "osmiridium", "desh", "dilithium");
         storage(GtTiers.ARDITE,
                 "uranium", "plutonium", "platinum", "palladium", "desh", "raw_desh", "naquadah",
                 "osmiridium", "tungsten_carbide", "adamantium");
 
         // 7 cobalt
         ores(GtTiers.COBALT,
-                "cobalt", "cobaltite", "iridium", "cooperite", "naquadah", "titanium", "ostrum");
+                "cobalt", "cobaltite", "iridium", "cooperite", "naquadah", "snowchestite",
+                "titanium", "ostrum");
         storage(GtTiers.COBALT,
-                "cobalt", "raw_cobalt", "iridium", "ostrum", "raw_ostrum", "duranium", "tritanium",
-                "knightmetal", "fiery");
+                "ardite", "raw_ardite", "cobalt", "raw_cobalt", "iridium", "ostrum", "raw_ostrum", "duranium", "tritanium",
+                "knightmetal");
+        ids(GtTiers.COBALT, "twilightforest:fiery_block", "twilightforest:knightmetal_block");
 
         // 8 manyullyn
         ores(GtTiers.MANYULLYN, "calorite");
@@ -166,6 +176,12 @@ public final class TierTags extends BlockTagsProvider {
     private void ids(GtnhTier tier, String... ids) {
         for (String id : ids) {
             tag(tier.blockTag()).addOptional(new ResourceLocation(id));
+        }
+    }
+
+    private void tags(GtnhTier tier, String... ids) {
+        for (String id : ids) {
+            tag(tier.blockTag()).addOptionalTag(new ResourceLocation(id));
         }
     }
 }

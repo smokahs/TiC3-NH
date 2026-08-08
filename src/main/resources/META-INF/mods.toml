@@ -8,6 +8,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="smokahs"
+logoFile="icon.png"
 description='''
 GregTech New Horizons-style Tinkers' Construct addon: numbered mining levels, per-tool XP leveling,
 GTNH modifier set, and a GTCEu Modern + Monifactory material bridge.

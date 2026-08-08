@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/raw_ardite"
+    }
+  ],
+  "result": {
+    "item": "tic3nh:raw_ardite",
+    "count": 9
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:casting_table",
+  "cooling_time": 20,
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_ardite"
+  },
+  "result": {
+    "tag": "forge:nuggets/ardite"
+  },
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/nugget"
+  }
+}

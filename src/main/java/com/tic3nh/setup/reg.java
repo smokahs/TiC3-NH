@@ -17,6 +17,7 @@ import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import com.tic3nh.TiC3NH;
+import com.tic3nh.ardite.Ardite;
 import com.tic3nh.buckets.ClayBucket;
 import com.tic3nh.buckets.MilkBucket;
 import com.tic3nh.leveling.LvlMod;
@@ -99,6 +100,7 @@ public final class reg {
 
     public static void init(IEventBus modBus) {
         Paperbark.init(modBus);
+        Ardite.init(modBus);
         ITEMS.register(modBus);
         MODIFIERS.register(modBus);
     }

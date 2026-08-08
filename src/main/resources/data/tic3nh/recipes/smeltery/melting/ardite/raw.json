@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:ore_melting",
+  "ingredient": {
+    "tag": "forge:raw_materials/ardite"
+  },
+  "result": {
+    "amount": 90,
+    "tag": "forge:molten_ardite"
+  },
+  "temperature": 1100,
+  "time": 97,
+  "rate": "metal"
+}

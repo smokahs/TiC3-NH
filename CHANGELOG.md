@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.7.0
+1. Add Ardite materials, textures, and recipes
+2. Introduced new textures for Ardite items and blocks, including molten states.
+3. Created JSON definitions for Ardite materials, including properties, stats, and traits.
+4. Added crafting and smelting recipes for Ardite ingots, nuggets, and blocks.
+5. Implemented loot tables for Ardite ores and blocks.
+6. Configured world generation features for Ardite ore in the Nether.
+7. Established tags for Ardite items and blocks to integrate with Forge.
+8. Added datapack for Manyullyn alloy creation using Ardite and Cobalt.
+
 ## v2.6.0
 1. **Fixed mining block requirements**
     - **Iron**: iron, lapis, silver, pyrite, magnetite and their blocks

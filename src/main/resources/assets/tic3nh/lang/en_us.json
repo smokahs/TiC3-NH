@@ -204,5 +204,15 @@
   "tic3nh.tooltip.skill.96": "96+Beggining of universe",
   "tic3nh.tooltip.skill.97": "97+Beggining of anything",
   "tic3nh.tooltip.skill.98": "98+Something something",
-  "tic3nh.tooltip.skill.99": "9001 Hacker"
+  "tic3nh.tooltip.skill.99": "9001 Hacker",
+  "block.tic3nh.ardite_ore": "Ardite Ore",
+  "block.tic3nh.ardite_block": "Block of Ardite",
+  "block.tic3nh.raw_ardite_block": "Block of Raw Ardite",
+  "block.tic3nh.molten_ardite": "Molten Ardite",
+  "item.tic3nh.raw_ardite": "Raw Ardite",
+  "item.tic3nh.ardite_ingot": "Ardite Ingot",
+  "item.tic3nh.ardite_nugget": "Ardite Nugget",
+  "item.tic3nh.molten_ardite_bucket": "Molten Ardite Bucket",
+  "fluid.tic3nh.molten_ardite": "Molten Ardite",
+  "material.tic3nh.ardite": "Ardite"
 }

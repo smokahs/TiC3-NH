@@ -33,6 +33,14 @@
       "required": false
     },
     {
+      "id": "#forge:ores/wolframite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/stolzite",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/quartz",
       "required": false
     },
@@ -69,11 +77,19 @@
     "minecraft:netherite_block",
     "minecraft:respawn_anchor",
     {
-      "id": "ae2:quartz_ore",
+      "id": "ae2:flawless_budding_quartz",
       "required": false
     },
     {
-      "id": "ae2:deepslate_quartz_ore",
+      "id": "ae2:flawed_budding_quartz",
+      "required": false
+    },
+    {
+      "id": "ae2:chipped_budding_quartz",
+      "required": false
+    },
+    {
+      "id": "ae2:damaged_budding_quartz",
       "required": false
     },
     {
@@ -98,6 +114,30 @@
     },
     {
       "id": "ae2:smooth_sky_stone_chest",
+      "required": false
+    },
+    {
+      "id": "twilightforest:deadrock",
+      "required": false
+    },
+    {
+      "id": "twilightforest:cracked_deadrock",
+      "required": false
+    },
+    {
+      "id": "twilightforest:weathered_deadrock",
+      "required": false
+    },
+    {
+      "id": "twilightforest:aurora_block",
+      "required": false
+    },
+    {
+      "id": "#twilightforest:mazestone",
+      "required": false
+    },
+    {
+      "id": "#twilightforest:castle_blocks",
       "required": false
     }
   ]

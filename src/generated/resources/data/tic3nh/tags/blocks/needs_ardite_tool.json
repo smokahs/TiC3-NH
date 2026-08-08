@@ -17,6 +17,10 @@
       "required": false
     },
     {
+      "id": "#forge:ores/carnotite",
+      "required": false
+    },
+    {
       "id": "#forge:ores/olivine",
       "required": false
     },
@@ -33,7 +37,35 @@
       "required": false
     },
     {
+      "id": "#forge:ores/cuprorhodsite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/sperrylite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/laurite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/ardite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/iridosmine",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/osmiridium",
+      "required": false
+    },
+    {
       "id": "#forge:ores/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/dilithium",
       "required": false
     },
     {

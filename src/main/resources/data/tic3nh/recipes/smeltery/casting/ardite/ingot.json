@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:casting_table",
+  "cooling_time": 65,
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_ardite"
+  },
+  "result": {
+    "tag": "forge:ingots/ardite"
+  },
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/ingot"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:raw_materials/ardite"
+    }
+  },
+  "result": {
+    "item": "tic3nh:raw_ardite_block"
+  }
+}

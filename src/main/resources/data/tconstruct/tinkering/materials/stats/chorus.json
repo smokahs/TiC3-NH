@@ -17,7 +17,7 @@
       "durability": 180,
       "melee_attack": 1.0,
       "mining_speed": 3.0,
-      "mining_tier": "tic3nh:stone"
+      "mining_tier": "tic3nh:copper"
     },
     "tconstruct:limb": {
       "accuracy": 0.1,

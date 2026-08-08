@@ -137,6 +137,30 @@
       "required": false
     },
     {
+      "id": "#forge:ores/argentite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/arsenopyrite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/fluorite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/gallite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/briartite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/xenotime",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/iron",
       "required": false
     },

@@ -69,6 +69,14 @@
       "required": false
     },
     {
+      "id": "#forge:ores/titanite",
+      "required": false
+    },
+    {
+      "id": "#forge:ores/wulfenite",
+      "required": false
+    },
+    {
       "id": "#forge:storage_blocks/gold",
       "required": false
     },

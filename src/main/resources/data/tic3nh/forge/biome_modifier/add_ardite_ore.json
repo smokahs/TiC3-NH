@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": [
+    "tic3nh:ardite_ore",
+    "tic3nh:ardite_ore_mid"
+  ],
+  "step": "underground_ores"
+}

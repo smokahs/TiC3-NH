@@ -96,11 +96,15 @@ public final class GtAccess {
             Collection<?> mats = (Collection<?>) mGetRegisteredMaterials.invoke(materialManager);
             for (Object mat : mats) {
                 try {
-                    if (!(Boolean) mHasProperty.invoke(mat, toolKey)) {
-                        continue;
-                    }
-                    Object tp = mGetProperty.invoke(mat, toolKey);
+                    Object tp = (Boolean) mHasProperty.invoke(mat, toolKey)
+                            ? mGetProperty.invoke(mat, toolKey)
+                            : null;
                     if (tp == null) {
+                        GtMat forced = Forced.build(String.valueOf(mGetName.invoke(mat)), rgb(mat),
+                                (Boolean) mHasProperty.invoke(mat, ingotKey));
+                        if (forced != null) {
+                            out.add(forced);
+                        }
                         continue;
                     }
                     int durMult = 1;
@@ -109,12 +113,7 @@ public final class GtAccess {
                     } else if (fDurMult != null) {
                         durMult = fDurMult.getInt(tp);
                     }
-                    int rgb = 0xFFFFFF;
-                    try {
-                        rgb = ((Number) mGetMaterialRGB.invoke(mat)).intValue() & 0xFFFFFF;
-                    } catch (Throwable noColor) {
-
-                    }
+                    int rgb = rgb(mat);
                     out.add(new GtMat(
                             String.valueOf(mGetName.invoke(mat)),
                             ((Number) mDurability.invoke(tp)).intValue(),
@@ -136,5 +135,13 @@ public final class GtAccess {
             LOG.warn("[TiC3-NH] GTCEu material scan failed: {}", t.toString());
         }
         return out;
+    }
+
+    private static int rgb(Object mat) {
+        try {
+            return ((Number) mGetMaterialRGB.invoke(mat)).intValue() & 0xFFFFFF;
+        } catch (Throwable noColor) {
+            return 0xFFFFFF;
+        }
     }
 }
