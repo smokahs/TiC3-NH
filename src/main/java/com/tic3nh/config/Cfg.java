@@ -49,6 +49,7 @@ public final class Cfg {
 
     public static final ForgeConfigSpec.BooleanValue STRICT_TIERS;
     public static final ForgeConfigSpec.BooleanValue GTNH_STATIONS;
+    public static final ForgeConfigSpec.BooleanValue TWILIGHT_ORES;
 
     // leveling — IguanaTweaks "toolleveling"
     public static final ForgeConfigSpec.BooleanValue TOOL_LEVELING;
@@ -182,6 +183,15 @@ public final class Cfg {
         GTNH_STATIONS = preset(b.comment(
                 "Re-gate the Tinkers tables with GTNH recipes.")
                 .define("gtnhStationRecipes", false), true);
+
+        b.pop();
+
+        b.comment("GregTech worldgen.").push("worldgen");
+
+        TWILIGHT_ORES = preset(b.comment(
+                "Give the Twilight Forest GregTech ore veins the way GTNH did: a full staple set plus",
+                "gem, galena, sapphire and olivine veins. Needs GTCEu; ignored without it.")
+                .define("twilightOres", false), true);
 
         b.pop();
 
@@ -380,6 +390,10 @@ public final class Cfg {
 
     public static boolean gtnhStations() {
         return value(GTNH_STATIONS);
+    }
+
+    public static boolean twilightOres() {
+        return value(TWILIGHT_ORES);
     }
 
 

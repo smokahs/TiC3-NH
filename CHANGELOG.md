@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.8.0
+1. Added GregTech ore generation to the Twilight Forest
+2. Registered a `twilight` GregTech worldgen layer, since GT pins its builtin `stone` layer to the Overworld.
+3. Added the `twilight_ores` built-in datapack with 13 ore veins, forced on in New Horizons Mode.
+4. Staple veins (coal, magnetite, limonite, cassiterite, salts, soapstone, apatite, lapis, diamond)
+5. Exclusive veins (gemstone, galena, sapphire, olivine)
+6. Added the `worldgen.twilightOres` config toggle. Requires GTCEu; ignored when it is absent.
+7. Added GTCEu as a `compileOnly` dependency
+8. Added the Twilight Crystal item, the Twilight Forest portal activator.
+9. Put the Twilight Crystal, Silky Jewel, Ball of Moss and Reinforcement in the Ingredients creative tab.
+
 ## v2.7.0
 1. Add Ardite materials, textures, and recipes
 2. Introduced new textures for Ardite items and blocks, including molten states.

@@ -12,6 +12,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import slimeknights.tconstruct.library.tools.definition.module.ToolModule;
 
 import com.tic3nh.buckets.BucketEvents;
+import com.tic3nh.compat.gtceu.GtWorldgen;
 import com.tic3nh.config.Cfg;
 import com.tic3nh.mininglevel.GtTiers;
 import com.tic3nh.mininglevel.Penalty;
@@ -41,6 +42,8 @@ public final class TiC3NH {
         event.enqueueWork(() -> {
 
             GtTiers.register();
+
+            GtWorldgen.registerLayer();
 
             BucketEvents.registerCauldrons();
 

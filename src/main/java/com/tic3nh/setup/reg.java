@@ -38,6 +38,11 @@ public final class reg {
     public static final RegistryObject<Item> SILKY_JEWEL =
             ITEMS.register("silky_jewel", () -> new Item(new Item.Properties()));
 
+    // twilight forest portal activator. the pack points twilightforest:portal/activator at this and
+    // supplies the assembler recipe, so on its own the item is inert and tf stays diamond-opened
+    public static final RegistryObject<Item> TWILIGHT_CRYSTAL =
+            ITEMS.register("twilight_crystal", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> BALL_OF_MOSS =
             ITEMS.register("ball_of_moss", () -> new Item(new Item.Properties()));
 

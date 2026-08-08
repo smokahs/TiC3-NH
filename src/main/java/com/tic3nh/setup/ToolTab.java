@@ -1,6 +1,7 @@
 package com.tic3nh.setup;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
 
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,6 +22,14 @@ public final class ToolTab {
 
     @SubscribeEvent
     public static void addToTabs(BuildCreativeModeTabContentsEvent event) {
+        // loose crafting items, none of which tconstruct puts in a tab for us
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(reg.SILKY_JEWEL);
+            event.accept(reg.BALL_OF_MOSS);
+            event.accept(reg.REINFORCEMENT);
+            event.accept(reg.TWILIGHT_CRYSTAL);
+            return;
+        }
         ResourceLocation tab = event.getTabKey().location();
         if (tab.equals(TCONSTRUCT_TOOLS)) {
             event.accept(((IModifiableDisplay) reg.SHOVEL.get()).getRenderTool());

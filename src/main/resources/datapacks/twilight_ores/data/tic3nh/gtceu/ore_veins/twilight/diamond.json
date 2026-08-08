@@ -1,0 +1,50 @@
+{
+  "generator": {
+    "primary": {
+      "targets": "gtceu:graphite",
+      "layers": 4
+    },
+    "secondary": {
+      "targets": "gtceu:graphite",
+      "layers": 3
+    },
+    "between": {
+      "targets": "gtceu:diamond",
+      "layers": 3
+    },
+    "sporadic": {
+      "targets": "gtceu:coal"
+    },
+    "y_radius": 6,
+    "type": "gtceu:classic"
+  },
+  "indicators": [
+    {
+      "block": "gtceu:diamond",
+      "radius": 2,
+      "density": 0.1,
+      "placement": "surface",
+      "type": "gtceu:surface"
+    }
+  ],
+  "height_range": {
+    "height": {
+      "min_inclusive": {
+        "absolute": -32
+      },
+      "max_inclusive": {
+        "absolute": -12
+      },
+      "type": "minecraft:uniform"
+    }
+  },
+  "discard_chance_on_air_exposure": 0.3,
+  "biomes": [],
+  "weight": 35,
+  "layer": "twilight",
+  "dimension_filter": [
+    "twilightforest:twilight_forest"
+  ],
+  "cluster_size": 36,
+  "density": 0.7071
+}

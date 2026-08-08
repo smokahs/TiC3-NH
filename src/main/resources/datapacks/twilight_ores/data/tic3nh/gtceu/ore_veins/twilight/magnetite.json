@@ -1,0 +1,62 @@
+{
+  "generator": {
+    "layer_patterns": [
+      [
+        {
+          "targets": [
+            "gtceu:magnetite"
+          ],
+          "min_size": 2,
+          "max_size": 4,
+          "weight": 3
+        },
+        {
+          "targets": [
+            "gtceu:vanadium_magnetite"
+          ],
+          "min_size": 1,
+          "max_size": 1,
+          "weight": 2
+        },
+        {
+          "targets": [
+            "gtceu:gold"
+          ],
+          "min_size": 1,
+          "max_size": 1,
+          "weight": 1
+        }
+      ]
+    ],
+    "type": "gtceu:layer"
+  },
+  "indicators": [
+    {
+      "block": "gtceu:magnetite",
+      "radius": 5,
+      "density": 0.2,
+      "placement": "surface",
+      "type": "gtceu:surface"
+    }
+  ],
+  "height_range": {
+    "height": {
+      "min_inclusive": {
+        "absolute": -10
+      },
+      "max_inclusive": {
+        "absolute": 50
+      },
+      "type": "minecraft:uniform"
+    }
+  },
+  "discard_chance_on_air_exposure": 0.3,
+  "biomes": [],
+  "weight": 70,
+  "layer": "twilight",
+  "dimension_filter": [
+    "twilightforest:twilight_forest"
+  ],
+  "cluster_size": 40,
+  "density": 0.6223
+}

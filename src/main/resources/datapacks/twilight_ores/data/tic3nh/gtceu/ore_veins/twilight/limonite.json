@@ -1,0 +1,65 @@
+{
+  "generator": {
+    "ore_blocks": [
+      {
+        "block": "gtceu:goethite",
+        "weight": 5
+      },
+      {
+        "block": "gtceu:yellow_limonite",
+        "weight": 2
+      },
+      {
+        "block": "gtceu:hematite",
+        "weight": 2
+      },
+      {
+        "block": "gtceu:malachite",
+        "weight": 1
+      }
+    ],
+    "rare_blocks": [],
+    "filler_block": {
+      "Name": "minecraft:air"
+    },
+    "min_y": -25,
+    "max_y": 40,
+    "veininess_threshold": 0.01,
+    "edge_roundoff_begin": 20,
+    "max_edge_roundoff": 0.2,
+    "min_richness": 0.7,
+    "max_richness": 1,
+    "max_richness_threshold": 0.175,
+    "rare_block_chance": 0.02,
+    "type": "gtceu:veined"
+  },
+  "indicators": [
+    {
+      "block": "gtceu:goethite",
+      "radius": 5,
+      "density": 0.2,
+      "placement": "surface",
+      "type": "gtceu:surface"
+    }
+  ],
+  "height_range": {
+    "height": {
+      "min_inclusive": {
+        "absolute": -25
+      },
+      "max_inclusive": {
+        "absolute": 40
+      },
+      "type": "minecraft:uniform"
+    }
+  },
+  "discard_chance_on_air_exposure": 0.3,
+  "biomes": [],
+  "weight": 100,
+  "layer": "twilight",
+  "dimension_filter": [
+    "twilightforest:twilight_forest"
+  ],
+  "cluster_size": 48,
+  "density": 1
+}

@@ -1,0 +1,70 @@
+{
+  "generator": {
+    "layer_patterns": [
+      [
+        {
+          "targets": [
+            "gtceu:lazurite"
+          ],
+          "min_size": 2,
+          "max_size": 4,
+          "weight": 3
+        },
+        {
+          "targets": [
+            "gtceu:sodalite"
+          ],
+          "min_size": 1,
+          "max_size": 1,
+          "weight": 2
+        },
+        {
+          "targets": [
+            "gtceu:lapis"
+          ],
+          "min_size": 1,
+          "max_size": 1,
+          "weight": 2
+        },
+        {
+          "targets": [
+            "gtceu:calcite"
+          ],
+          "min_size": 1,
+          "max_size": 1,
+          "weight": 1
+        }
+      ]
+    ],
+    "type": "gtceu:layer"
+  },
+  "indicators": [
+    {
+      "block": "gtceu:lapis",
+      "radius": 5,
+      "density": 0.2,
+      "placement": "surface",
+      "type": "gtceu:surface"
+    }
+  ],
+  "height_range": {
+    "height": {
+      "min_inclusive": {
+        "absolute": -32
+      },
+      "max_inclusive": {
+        "absolute": 10
+      },
+      "type": "minecraft:uniform"
+    }
+  },
+  "discard_chance_on_air_exposure": 0.3,
+  "biomes": [],
+  "weight": 40,
+  "layer": "twilight",
+  "dimension_filter": [
+    "twilightforest:twilight_forest"
+  ],
+  "cluster_size": 40,
+  "density": 0.7071
+}
